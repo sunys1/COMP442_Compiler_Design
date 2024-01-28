@@ -9,10 +9,9 @@ public class State {
 	private String tokenName;
 	private boolean isBacktrack;
 	
-	public State(int sid, HashMap<String, Integer> transitions, String tokenName) {
+	public State(int sid, HashMap<String, Integer> transitions) {
 		this.sid = sid;
 		this.transitions = new HashMap<String, Integer>(transitions);
-		this.tokenName = tokenName;
 	}
 	public State(int sid, HashMap<String, Integer> transitions, boolean isFinal, String tokenName, boolean isBacktrack) {
 		this.sid = sid;
