@@ -1,20 +1,16 @@
 package LexicalAnalyzer;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
-import LexicalAnalyzer.State;
-import LexicalAnalyzer.Token;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class LexicalDrive {
 		private static final String[] RESERVED_WORDS = {
@@ -27,6 +23,7 @@ public class LexicalDrive {
 		private static final String[] nonzeros = "123456789".split("");
 		private static ArrayList<String> reserved = new ArrayList<>(Arrays.asList(RESERVED_WORDS));
 		private static ArrayList<State> states = new ArrayList<>();
+		private static final Pattern lineBreakPattern = Pattern.compile("\r\n|\n");
 		private static PrintWriter tokenWriter = null;
 		private static PrintWriter errorWriter = null;
 		private static Scanner fileScanner = null;
@@ -70,6 +67,14 @@ public class LexicalDrive {
 			}
 			
 			return false;
+		}
+		
+		public static String trimToken(StringBuilder tokenBuilder) {
+			return tokenBuilder.toString().trim();
+		}
+		
+		public static String replaceNewline(String token) {
+			return token.replaceAll(lineBreakPattern.pattern(), "\\\\n");
 		}
 		
 		public static Token createToken(String tokenName, String tokenValue, int lineNum) {
@@ -168,6 +173,9 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State7
+			for (String s : nonzeros) {
+				transitions.put(s, 8);
+			}
 			transitions.put("+", 8);
 			transitions.put("-", 8);
 			State s7 = new State(7, transitions);
@@ -335,7 +343,7 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State37
-			transitions.put(System.lineSeparator(), 38); //37->38 on reading end-of-line
+			transitions.put("\n", 38); //37->38 on reading end-of-line
 			State s37 = new State(37, transitions);
 			states.add(s37);
 			transitions.clear();
@@ -365,11 +373,12 @@ public class LexicalDrive {
 		
 		public static Token nextToken() {
 			StringBuilder tokenBuilder = new StringBuilder();
+			StringBuilder errorBuilder = new StringBuilder();
 			State state = states.get(0); //Start state 1
 			String lookup = "", tokenName = "", tokenValue = "";
-			int sid = 0;
+			int sid, openCmtCounter = 0, closeCmtCounter = 0, lineBreakCounter = 0;
 			Token token = null;
-			boolean isBacktrack = false;
+			boolean isBacktrack = false, isInlinecmt = false, isBlockcmt = false;
 			
 			while(token == null) {
 				if(!charBackUp.trim().isEmpty()){ // skip the meaningless backup characters
@@ -381,16 +390,27 @@ public class LexicalDrive {
 						lookup = " "; // if the last token in the line needs backtracking, this character is appended as a placeholder 
 					}
 					
-					if(lookup.equals("\n")) {
+					Matcher matcher = lineBreakPattern.matcher(lookup);
+					if(matcher.find()) {
 						lineNum++; // keep track of the line number
 					}
 				}
 				tokenBuilder.append(lookup);
 				
+				if(trimToken(tokenBuilder).equals("//")) { // the start of an inline comment
+					isInlinecmt = true; 			
+					break; // no need to read the rest of the line character by character. The entire line will be kept as an inline comment token
+				}
+				if(trimToken(tokenBuilder).equals("/*")) { // the start of a block comment
+					isBlockcmt = true;
+					openCmtCounter++;
+					break;
+				}
 				HashMap<String, Integer> table = state.getTransitions();
 				if(table.containsKey(lookup)) {
-					sid = table.get(lookup); //next state via the transition
+					sid = table.get(lookup); // next state via the transition
 					state = states.get(sid-1);
+					
 					if(state.getIsFinal()) {
 						tokenName = state.getTokenName();
 						// check if this state needs backtracking
@@ -398,7 +418,7 @@ public class LexicalDrive {
 							isBacktrack = true;
 						}else {
 							isBacktrack = false;
-							tokenValue = tokenBuilder.toString().trim();
+							tokenValue = trimToken(tokenBuilder);
 							token = createToken(tokenName, tokenValue, lineNum);
 						}
 					}
@@ -406,19 +426,70 @@ public class LexicalDrive {
 					if(isBacktrack) {
 						tokenBuilder.deleteCharAt(tokenBuilder.length() - 1); // remove the extra character read for backtracking
 						charBackUp = lookup;
-						tokenValue = tokenBuilder.toString().trim();
+						tokenValue = trimToken(tokenBuilder);
 						
 						// check for reserved word
 						if(isReservedWord(tokenValue, reserved)) {
 							tokenName = tokenValue;
 						}
-						if(lookup.equals("\n")) {
+						
+						Matcher matcher = lineBreakPattern.matcher(lookup);
+						if(matcher.find()) {
 							token = createToken(tokenName, tokenValue, lineNum-1);
 						}else {
 							token = createToken(tokenName, tokenValue, lineNum);
 						}
 					}
 				}
+			}
+			
+			if(isInlinecmt) {
+				tokenBuilder.append(fileScanner.nextLine());
+				sid = 38; // state for inline comment
+				state = states.get(sid-1);
+				tokenName = state.getTokenName();
+				tokenValue = trimToken(tokenBuilder);
+				token = createToken(tokenName, tokenValue, lineNum);
+				lineNum++;
+			}else if(isBlockcmt) {
+				while(token == null && fileScanner.hasNext()) {
+					lookup = fileScanner.next();
+					tokenBuilder.append(lookup);
+					
+					Matcher matcher = lineBreakPattern.matcher(lookup);
+					if(matcher.find()) {
+						lineBreakCounter++; // keep track of the line number
+					}
+					
+					String symbols = tokenBuilder.substring(tokenBuilder.length()-2); 
+					if(symbols.equals("/*")) { // check for block comment closing symbols
+						openCmtCounter++;
+					}else if(symbols.equals("*/")) {
+						closeCmtCounter++;
+					}
+					
+					if(openCmtCounter == closeCmtCounter) {
+						sid = 41; // state for block comment
+						state = states.get(sid-1);
+						tokenName = state.getTokenName();
+						tokenValue = replaceNewline(trimToken(tokenBuilder));
+						token = createToken(tokenName, tokenValue, lineNum);
+					}
+				}
+				
+				// if the count of opening block comment symbols does not match the count of the closing symbols after reading the entire file
+				if(openCmtCounter > closeCmtCounter) {
+					sid = 41;
+					state = states.get(sid-1);
+					tokenName = state.getTokenName();
+					tokenValue = replaceNewline(trimToken(tokenBuilder)); //replace actual newline characters with the newline escape sequence
+					token = createToken(tokenName, tokenValue, lineNum);
+				}else if(openCmtCounter < closeCmtCounter) {
+					String error = "Lexical error: Invalid block comment: " +  replaceNewline(trimToken(tokenBuilder)) + ": " + lineNum;
+					errorWriter.println(error);
+				}
+				
+				lineNum += lineBreakCounter;
 			}
 			return token;
 		}
