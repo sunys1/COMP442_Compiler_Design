@@ -22,15 +22,18 @@ public class LexicalDrive {
 		    "public", "private", "func", "var", "struct", "while",
 		    "read", "write", "return", "self", "inherits", "let", "impl"
 	    };
-		
+		private static final String[] letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+		private static final String[] digits = "0123456789".split("");
+		private static final String[] nonzeros = "123456789".split("");
+		private static ArrayList<String> reserved = new ArrayList<>(Arrays.asList(RESERVED_WORDS));
 		private static ArrayList<State> states = new ArrayList<>();
 		private static PrintWriter tokenWriter = null;
 		private static PrintWriter errorWriter = null;
 		private static Scanner fileScanner = null;
+		private static String charBackUp = "";
+		private static int lineNum = 1;
 
-		public static void main(String[] args) {
-			ArrayList<String> reserved = new ArrayList<>(Arrays.asList(RESERVED_WORDS));
-						
+		public static void main(String[] args) {			
 			try {
 				File f = new File("lexpositivegrading.src");
 				
@@ -44,7 +47,7 @@ public class LexicalDrive {
 					// Initialize the state transition table
 					createStateMap();
 					
-//					// Scan tokens
+					// Scan tokens
 					while(fileScanner.hasNext()) {
 						Token token = nextToken();
 					}
@@ -80,9 +83,6 @@ public class LexicalDrive {
 		
 		public static void createStateMap() {
 			// Populate the table with the state transitions translated from the DFA
-			String[] letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-			String[] digits = "0123456789".split("");
-			String[] nonzeros = "123456789".split("");
 			HashMap<String, Integer> transitions = new HashMap<>();
 			
 			//State 1
@@ -96,7 +96,7 @@ public class LexicalDrive {
 			transitions.put("0", 11);
 			transitions.put("+", 12);
 			transitions.put("-", 13);
-			transitions.put("-", 14);
+			transitions.put(".", 14);
 			transitions.put("!", 15);
 			transitions.put(",", 16);
 			transitions.put(";", 17);
@@ -208,7 +208,8 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State13
-			State s13 = new State(13, transitions, true, "minus", false);
+			transitions.put(">", 18);
+			State s13 = new State(13, transitions, true, "minus", true);
 			states.add(s13);
 			transitions.clear();
 			
@@ -365,21 +366,60 @@ public class LexicalDrive {
 		public static Token nextToken() {
 			StringBuilder tokenBuilder = new StringBuilder();
 			State state = states.get(0); //Start state 1
-			String lookup = fileScanner.next();
-			tokenBuilder.append(lookup);
-			int lineNum = 0;
+			String lookup = "", tokenName = "", tokenValue = "";
+			int sid = 0;
+			Token token = null;
+			boolean isBacktrack = false;
 			
-			HashMap<String, Integer> table = state.getTransitions();
-			if(table.containsKey(lookup)) {
-				int sid = table.get(lookup); //next state via the transition
-				State next = states.get(sid-1);
-				if(next.getIsFinal()) {
-					String tokenValue = tokenBuilder.toString();
-					Token token = createToken(next.getTokenName(), tokenValue, lineNum);
-					return token;
+			while(token == null) {
+				if(!charBackUp.trim().isEmpty()){ // skip the meaningless backup characters
+					lookup = charBackUp; //restore the backup character 
+				}else {
+					if(fileScanner.hasNext()) {
+						lookup = fileScanner.next();
+					}else {
+						lookup = " "; // if the last token in the line needs backtracking, this character is appended as a placeholder 
+					}
+					
+					if(lookup.equals("\n")) {
+						lineNum++; // keep track of the line number
+					}
+				}
+				tokenBuilder.append(lookup);
+				
+				HashMap<String, Integer> table = state.getTransitions();
+				if(table.containsKey(lookup)) {
+					sid = table.get(lookup); //next state via the transition
+					state = states.get(sid-1);
+					if(state.getIsFinal()) {
+						tokenName = state.getTokenName();
+						// check if this state needs backtracking
+						if(state.getIsBacktrack()) {
+							isBacktrack = true;
+						}else {
+							isBacktrack = false;
+							tokenValue = tokenBuilder.toString().trim();
+							token = createToken(tokenName, tokenValue, lineNum);
+						}
+					}
+				}else {
+					if(isBacktrack) {
+						tokenBuilder.deleteCharAt(tokenBuilder.length() - 1); // remove the extra character read for backtracking
+						charBackUp = lookup;
+						tokenValue = tokenBuilder.toString().trim();
+						
+						// check for reserved word
+						if(isReservedWord(tokenValue, reserved)) {
+							tokenName = tokenValue;
+						}
+						if(lookup.equals("\n")) {
+							token = createToken(tokenName, tokenValue, lineNum-1);
+						}else {
+							token = createToken(tokenName, tokenValue, lineNum);
+						}
+					}
 				}
 			}
-
-			return null;
+			return token;
 		}
 }
