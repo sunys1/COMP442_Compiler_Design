@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,12 +21,14 @@ public class LexicalDrive {
 		    "public", "private", "func", "var", "struct", "while",
 		    "read", "write", "return", "self", "inherits", "let", "impl"
 	    };
-		private static final String[] letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-		private static final String[] digits = "0123456789".split("");
-		private static final String[] nonzeros = "123456789".split("");
+		private static final String[] LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+		private static final String[] DIGITS = "0123456789".split("");
+		private static final String[] NONZEROS = "123456789".split("");
+		private static final Pattern LINEBREAKPATTERN = Pattern.compile("\r\n|\n");
+		public static final String DEFAULT_INPUT = "./input/lexer";
+		public static final String DEFAULT_OUTPUT = "./output/lexer/";
 		private static ArrayList<String> reserved = new ArrayList<>(Arrays.asList(RESERVED_WORDS));
 		private static ArrayList<State> states = new ArrayList<>();
-		private static final Pattern lineBreakPattern = Pattern.compile("\r\n|\n");
 		private static PrintWriter tokenWriter = null;
 		private static PrintWriter errorWriter = null;
 		private static Scanner fileScanner = null;
@@ -32,31 +37,39 @@ public class LexicalDrive {
 
 		public static void main(String[] args) {			
 			try {
-				File f = new File("lexpositivegrading.src");
+				File folder = new File(DEFAULT_INPUT);
+				File[] listOfFiles = folder.listFiles();
+				Files.createDirectories(Paths.get(DEFAULT_OUTPUT));
 				
-				if(f.canRead()) {
-					String fileName = f.getName();
-					fileScanner = new Scanner(new FileInputStream(f));
-					fileScanner.useDelimiter("");
-					tokenWriter = new PrintWriter(new FileOutputStream(fileName + ".outlextokens"));
-					errorWriter = new PrintWriter(new FileOutputStream(fileName + ".outlexerrors"));
-					
-					// Initialize the state transition table
-					createStateMap();
-					
-					// Scan tokens
-					while(fileScanner.hasNext()) {
-						Token token = nextToken();
+				// Process files that end with ".src"
+				for (int i = 0; i < listOfFiles.length; i++) {
+					if(listOfFiles[i].getName().endsWith(".src")) {
+						File file = listOfFiles[i];
+						if(file.canRead()) {
+							String fileName = file.getName();
+							fileScanner = new Scanner(new FileInputStream(file));
+							fileScanner.useDelimiter("");
+							tokenWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName + ".outlextokens"));
+							errorWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName + ".outlexerrors"));
+							
+							// Initialize the state transition table
+							createStateMap();
+							
+							// Scan tokens
+							while(fileScanner.hasNext()) {
+								Token token = nextToken();
+							}
+							
+						}else {
+							System.out.println("Unable to read this file.");
+						}
 					}
-					
-				}else {
-					System.out.println("Unable to read this file.");
-				}
+				}				
 				
 				fileScanner.close();
 				tokenWriter.close();
 				errorWriter.close();
-			}catch(FileNotFoundException e) {
+			}catch(IOException e) {
 				e.printStackTrace();
 			}
 		}
@@ -74,15 +87,21 @@ public class LexicalDrive {
 		}
 		
 		public static String replaceNewline(String token) {
-			return token.replaceAll(lineBreakPattern.pattern(), "\\\\n");
+			return token.replaceAll(LINEBREAKPATTERN.pattern(), "\\\\n");
 		}
 		
 		public static Token createToken(String tokenName, String tokenValue, int lineNum) {
 			Token token = new Token(tokenName, tokenValue, lineNum);
 			System.out.println(token.toString());
 			tokenWriter.println(token.toString());
-			tokenWriter.flush();
 			
+			// if invalid token, log an error message
+			if(tokenName.equals(TokenName.INVALIDCHAR.toString().toLowerCase())) { 
+				errorWriter.println("Lexical error: Invalid character: " + "\"" + tokenValue + "\"" + ": line " + lineNum);
+				errorWriter.flush();
+			}
+			
+			tokenWriter.flush();
 			return token;
 		}
 		
@@ -92,10 +111,10 @@ public class LexicalDrive {
 			
 			//State 1
 			//1->2 on letter inputs
-			for (String s : letters) {
+			for (String s : LETTERS) {
 				transitions.put(s, 2);
 			}
-			for (String s : nonzeros) {
+			for (String s : NONZEROS) {
 				transitions.put(s, 3);
 			}
 			transitions.put("0", 11);
@@ -125,10 +144,10 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State 2
-			for (String s : letters) {
+			for (String s : LETTERS) {
 				transitions.put(s, 2);
 			}
-			for (String s : digits) {
+			for (String s : DIGITS) {
 				transitions.put(s, 2);
 			}
 			transitions.put("_", 2);
@@ -137,7 +156,7 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State 3
-			for (String s : digits) {
+			for (String s : DIGITS) {
 				transitions.put(s, 3);
 			}
 			transitions.put(".", 4);
@@ -146,7 +165,7 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State4
-			for (String s : digits) {
+			for (String s : DIGITS) {
 				transitions.put(s, 5);
 			}
 			State s4 = new State(4, transitions);
@@ -154,7 +173,7 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State5
-			for (String s : nonzeros) {
+			for (String s : NONZEROS) {
 				transitions.put(s, 5);
 			}
 			transitions.put("0", 6);
@@ -164,7 +183,7 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State6
-			for (String s : nonzeros) {
+			for (String s : NONZEROS) {
 				transitions.put(s, 5);
 			}
 			transitions.put("0", 6);
@@ -173,17 +192,18 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State7
-			for (String s : nonzeros) {
+			for (String s : NONZEROS) {
 				transitions.put(s, 8);
 			}
 			transitions.put("+", 8);
 			transitions.put("-", 8);
+			transitions.put("0", 10);
 			State s7 = new State(7, transitions);
 			states.add(s7);
 			transitions.clear();
 			
 			//State8
-			for (String s : nonzeros) {
+			for (String s : NONZEROS) {
 				transitions.put(s, 9);
 			}
 			transitions.put("0", 10);
@@ -192,7 +212,7 @@ public class LexicalDrive {
 			transitions.clear();
 			
 			//State9
-			for (String s : digits) {
+			for (String s : DIGITS) {
 				transitions.put(s, 9);
 			}
 			State s9 = new State(9, transitions, true, "floatnum", true);
@@ -382,15 +402,19 @@ public class LexicalDrive {
 			
 			while(token == null) {
 				if(!charBackUp.trim().isEmpty()){ // skip the meaningless backup characters
-					lookup = charBackUp; //restore the backup character 
+					// restore the backup character
+					lookup = charBackUp;  
+					charBackUp = "";
 				}else {
 					if(fileScanner.hasNext()) {
 						lookup = fileScanner.next();
 					}else {
-						lookup = " "; // if the last token in the line needs backtracking, this character is appended as a placeholder 
+						if(isBacktrack) {
+							lookup = " "; // if the last token in the line needs backtracking, this character is appended as a placeholder
+						}
 					}
 					
-					Matcher matcher = lineBreakPattern.matcher(lookup);
+					Matcher matcher = LINEBREAKPATTERN.matcher(lookup);
 					if(matcher.find()) {
 						lineNum++; // keep track of the line number
 					}
@@ -406,6 +430,8 @@ public class LexicalDrive {
 					openCmtCounter++;
 					break;
 				}
+				
+				// retrieve the state transition map. Check if a final state will be reached
 				HashMap<String, Integer> table = state.getTransitions();
 				if(table.containsKey(lookup)) {
 					sid = table.get(lookup); // next state via the transition
@@ -423,6 +449,7 @@ public class LexicalDrive {
 						}
 					}
 				}else {
+					// check if backtracking is needed
 					if(isBacktrack) {
 						tokenBuilder.deleteCharAt(tokenBuilder.length() - 1); // remove the extra character read for backtracking
 						charBackUp = lookup;
@@ -433,11 +460,17 @@ public class LexicalDrive {
 							tokenName = tokenValue;
 						}
 						
-						Matcher matcher = lineBreakPattern.matcher(lookup);
+						Matcher matcher = LINEBREAKPATTERN.matcher(lookup);
 						if(matcher.find()) {
 							token = createToken(tokenName, tokenValue, lineNum-1);
 						}else {
 							token = createToken(tokenName, tokenValue, lineNum);
+						}
+					}else { // invalid character if no backtracking and not a final state
+						if(!lookup.trim().isEmpty()) {
+							token = createToken(TokenName.INVALIDCHAR.toString().toLowerCase(), lookup, lineNum);
+						}else {
+							break; // meaningless whitespace
 						}
 					}
 				}
@@ -456,7 +489,7 @@ public class LexicalDrive {
 					lookup = fileScanner.next();
 					tokenBuilder.append(lookup);
 					
-					Matcher matcher = lineBreakPattern.matcher(lookup);
+					Matcher matcher = LINEBREAKPATTERN.matcher(lookup);
 					if(matcher.find()) {
 						lineBreakCounter++; // keep track of the line number
 					}
