@@ -124,7 +124,6 @@ public class LexicalDrive {
 			transitions.put("!", 15);
 			transitions.put(",", 16);
 			transitions.put(";", 17);
-			transitions.put("->", 18);
 			transitions.put("&", 19);
 			transitions.put("*", 20);
 			transitions.put("|", 21);
