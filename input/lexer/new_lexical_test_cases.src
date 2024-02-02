@@ -1,46 +1,5 @@
+/* Unterminated block comment /*
+/*
 
-// Valid Identifiers
-identifier1
-_id2
-id3_identifier
-
-// Invalid Identifiers
-1invalid
-!notValid
-
-// Valid Numbers
-12345
-6789
-123.45
-678.90e-10
-
-// Invalid Numbers
-12abc34
-.5678
-123e+abc
-
-// Operators
-+ - * / & | = == <> < > <= >=
-
-// Punctuation
-. , ; : :: ->
-
-// Delimiters
-( ) { } [ ]
-
-// Comments
-// This is an inline comment
-/* This is a block comment */
-/* Nested /* block */ comment */
-
-// Keywords
-if then else integer float void public private func var struct while read write return self inherits let impl
-
-// Error Cases
-@ # $ % ^ ~ `
-
-// Mixed Cases
-if (identifier1 == 12345) { // Valid case
-    read data;
-}
-!invalid - 67890; // Invalid case
+var i: float;
+y=x+z

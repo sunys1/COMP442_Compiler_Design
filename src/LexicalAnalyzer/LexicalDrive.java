@@ -49,11 +49,15 @@ public class LexicalDrive {
 							String fileName = file.getName();
 							fileScanner = new Scanner(new FileInputStream(file));
 							fileScanner.useDelimiter("");
-							tokenWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName + ".outlextokens"));
-							errorWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName + ".outlexerrors"));
+							tokenWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName.split("[.]")[0] + ".outlextokens"));
+							errorWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName.split("[.]")[0] + ".outlexerrors"));
 							
 							// Initialize the state transition table
 							createStateMap();
+							
+							// Initialize the tracker variables
+							charBackUp = "";
+							lineNum = 1;
 							
 							// Scan tokens
 							while(fileScanner.hasNext()) {
@@ -61,7 +65,7 @@ public class LexicalDrive {
 							}
 							
 						}else {
-							System.out.println("Unable to read this file.");
+							System.out.println("Unable to read file: " + file.getName());
 						}
 					}
 				}				
@@ -92,16 +96,18 @@ public class LexicalDrive {
 		
 		public static Token createToken(String tokenName, String tokenValue, int lineNum) {
 			Token token = new Token(tokenName, tokenValue, lineNum);
-			System.out.println(token.toString());
 			tokenWriter.println(token.toString());
 			
 			// if invalid token, log an error message
 			if(tokenName.equals(TokenName.INVALIDCHAR.toString().toLowerCase())) { 
 				errorWriter.println("Lexical error: Invalid character: " + "\"" + tokenValue + "\"" + ": line " + lineNum);
-				errorWriter.flush();
+			}else if(tokenName.equals(TokenName.INVALIDBLOCKCMT.toString().toLowerCase())) { 
+				errorWriter.println("Lexical error: Invalid block comment: " + tokenValue + ": line " + lineNum);
+				
 			}
 			
 			tokenWriter.flush();
+			errorWriter.flush();
 			return token;
 		}
 		
@@ -510,15 +516,10 @@ public class LexicalDrive {
 				}
 				
 				// if the count of opening block comment symbols does not match the count of the closing symbols after reading the entire file
-				if(openCmtCounter > closeCmtCounter) {
-					sid = 41;
-					state = states.get(sid-1);
-					tokenName = state.getTokenName();
+				if(openCmtCounter != closeCmtCounter) {
+					tokenName = TokenName.INVALIDBLOCKCMT.toString().toLowerCase();
 					tokenValue = replaceNewline(trimToken(tokenBuilder)); //replace actual newline characters with the newline escape sequence
 					token = createToken(tokenName, tokenValue, lineNum);
-				}else if(openCmtCounter < closeCmtCounter) {
-					String error = "Lexical error: Invalid block comment: " +  replaceNewline(trimToken(tokenBuilder)) + ": " + lineNum;
-					errorWriter.println(error);
 				}
 				
 				lineNum += lineBreakCounter;

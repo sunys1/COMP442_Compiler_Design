@@ -1,0 +1,1 @@
+[invalidblockcmt, /* Unterminated block comment /*\n/*\n\nvar i: float;\ny=x+z, 1]
