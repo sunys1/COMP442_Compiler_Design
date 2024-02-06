@@ -1,0 +1,17 @@
+Phase 2 steps:
+
+1. Study the grammar
+
+2. Using the grammar tool:
+   - remove EBNF optionality
+   - remove EBNF repetition
+   - remove left-recursions
+
+3. Using AtoCC or UCalgary tool
+   - Locate ambiguities
+   - Remove ambiguities
+
+4. Implement a top-down parser
+   - Recursive descent, or
+   - Table driven -> use UCalgary tool to construct table
+
