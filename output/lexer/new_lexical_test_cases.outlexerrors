@@ -1,1 +1,1 @@
-Lexical error: Invalid block comment: /* Unterminated block comment /*\n/*\n\nvar i: float;\ny=x+z: line 1
+Lexical error: Invalid block comment: /* Unterminated block comment /*\n/*\n\nvar i: float;\ny=x+z: line 3
