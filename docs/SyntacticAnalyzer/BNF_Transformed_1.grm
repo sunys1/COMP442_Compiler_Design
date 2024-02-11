@@ -150,5 +150,11 @@
 <varDeclOrStat> ::= <varDecl> 
 <varDeclOrStat> ::= <statement> 
 
+<variable> ::= 'id' <variablePrime>
+<variablePrime> ::= <rept-idnest1> <variablePrimeTail>
+<variablePrime> ::= '(' <aParams> ')' '.' 'id' <variablePrime>
+<variablePrimeTail> ::= '.' 'id' <variablePrime>
+<variablePrimeTail> ::= EPSILON
+
 <visibility> ::= 'public' 
 <visibility> ::= 'private' 
