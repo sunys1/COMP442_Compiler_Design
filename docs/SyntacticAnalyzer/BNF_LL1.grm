@@ -11,27 +11,33 @@
 
 <arithExpr> ::= <term> <rightrec-arithExpr> 
 
-<arraySize> ::= '[' <arraySize2>
-<arraySize2> ::= 'intLit' ']'
-<arraySize2> ::= ']'
+<arraySize> ::= '[' <arraysize2>
+<arraySize2> ::= 'intLit' ']' 
+<arraySize2> ::= EPSILON
 
 <assignOp> ::= '=' 
 
 <expr> ::= <arithExpr> <expr2>
 <expr2> ::= <relOp> <arithExpr>
-<expr2> ::= EPSILON
+<expr2> ::= EPSILON 
 
 <fParams> ::= 'id' ':' <type> <rept-fParams3> <rept-fParams4> 
 <fParams> ::= EPSILON 
 
 <fParamsTail> ::= ',' 'id' ':' <type> <rept-fParamsTail4> 
-
-<factor> ::= <variable> 
+ 
+<factor> ::= 'id' <factor2> <rept-variableOrFunctionCall>
 <factor> ::= 'intLit' 
 <factor> ::= 'floatLit' 
 <factor> ::= '(' <arithExpr> ')' 
 <factor> ::= 'not' <factor> 
 <factor> ::= <sign> <factor> 
+
+factor2 ::= '(' <aParams> ')'  
+factor2 ::= <rept-idnest1>   
+
+<rept-variableOrFunctionCall> ::= <idnest> <rept-variableOrFunctionCall>
+<rept-variableOrFunctionCall> ::= EPSILON
 
 <funcBody> ::= '{' <rept-funcBody1> '}' 
 
@@ -41,7 +47,9 @@
 
 <funcHead> ::= 'func' 'id' '(' <fParams> ')' '->' <returnType> 
 
-<functionCall> ::= <rept-functionCall0> 'id' '(' <aParams> ')' 
+<idnest> ::= '.' 'id' <idnest2>
+<idnest2> ::= '(' <aParams> ')'
+<idnest2> ::= <rept-idnest1>
 
 <implDef> ::= 'impl' 'id' '{' <rept-implDef3> '}' 
 
@@ -61,7 +69,7 @@
 
 <relExpr> ::= <arithExpr> <relOp> <arithExpr> 
 
-<relOp> ::= 'eq' 	
+<relOp> ::= 'eq' 
 <relOp> ::= 'neq' 
 <relOp> ::= 'lt' 
 <relOp> ::= 'gt' 
@@ -92,7 +100,7 @@
 <rept-opt-structDecl22> ::= ',' 'id' <rept-opt-structDecl22> 
 <rept-opt-structDecl22> ::= EPSILON 
 
-<rept-prog0> ::= <structOrImplOrFunc> <rept-prog0> 
+<rept-prog0> ::= <structOrImplOrfunc> <rept-prog0> 
 <rept-prog0> ::= EPSILON 
 
 <rept-statBlock1> ::= <statement> <rept-statBlock1> 
@@ -120,18 +128,18 @@
 <statBlock> ::= <statement> 
 <statBlock> ::= EPSILON 
 
-<statement> ::= 'id' <statementPrime>
+<statement> ::= 'id' <statement2>
 <statement> ::= 'if' '(' <relExpr> ')' 'then' <statBlock> 'else' <statBlock> ';' 
 <statement> ::= 'while' '(' <relExpr> ')' <statBlock> ';' 
 <statement> ::= 'read' '(' <variable> ')' ';' 
 <statement> ::= 'write' '(' <expr> ')' ';' 
 <statement> ::= 'return' '(' <expr> ')' ';' 
-<statementPrime> ::= <rept-idnest1> <statementPrime2>
-<statementPrime> ::= '(' <aParams> ')' <statementPrime3>
-<statementPrime2> ::= '.' 'id' <statementPrime>
-<statementPrime2> ::= <assignOp> <expr> ';'
-<statementPrime3> ::= '.' 'id' <statementPrime>
-<statementPrime3> ::= ';'
+<statement2> ::= <rept-idnest1> <statement3>
+<statement2> ::= '(' <aParams> ')' <statement4>
+<statement3> ::= '.' 'id' <statement2>
+<statement3> ::= <assignOp> <expr> ';'
+<statement4> ::= '.' 'id' <statement2>
+<statement4> ::= ';' 
 
 <structDecl> ::= 'struct' 'id' <opt-structDecl2> '{' <rept-structDecl4> '}' ';' 
 
@@ -148,13 +156,17 @@
 <varDecl> ::= 'let' 'id' ':' <type> <rept-varDecl4> ';' 
 
 <varDeclOrStat> ::= <varDecl> 
-<varDeclOrStat> ::= <statement> 
+<varDeclOrStat> ::= <statement>
 
-<variable> ::= 'id' <variablePrime>
-<variablePrime> ::= <rept-idnest1> <variablePrimeTail>
-<variablePrime> ::= '(' <aParams> ')' '.' 'id' <variablePrime>
-<variablePrimeTail> ::= '.' 'id' <variablePrime>
-<variablePrimeTail> ::= EPSILON
+<variable> ::= 'id' <variable2>
+<variable2> ::= <rept-idnest1> <rept-variable>
+<variable2> ::= '(' <aParams> ')' <varidnest>  
+<rept-variable> ::= <varidnest> <rept-variable>
+<rept-variable> ::= EPSILON
+
+<varidnest> ::= '.' id <varidnest2> 
+<varidnest2> ::= '(' <aParams> ')' <varidnest>  
+<varidnest2> ::= <rept-idnest1>
 
 <visibility> ::= 'public' 
 <visibility> ::= 'private' 
