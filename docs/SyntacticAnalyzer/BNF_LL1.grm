@@ -13,7 +13,7 @@
 
 <arraySize> ::= '[' <arraysize2>
 <arraySize2> ::= 'intLit' ']' 
-<arraySize2> ::= EPSILON
+<arraySize2> ::= ']'
 
 <assignOp> ::= '=' 
 
