@@ -7,7 +7,7 @@
 
 <addOp> ::= '+' 
 <addOp> ::= '-' 
-<addOp> ::= 'or' 
+<addOp> ::= '|' 
 
 <arithExpr> ::= <term> <rightrec-arithExpr> 
 
@@ -45,7 +45,7 @@ factor2 ::= <rept-idnest1>
 
 <funcDef> ::= <funcHead> <funcBody> 
 
-<funcHead> ::= 'func' 'id' '(' <fParams> ')' '->' <returnType> 
+<funcHead> ::= 'func' 'id' '(' <fParams> ')' 'arrow' <returnType> 
 
 <idnest> ::= '.' 'id' <idnest2>
 <idnest2> ::= '(' <aParams> ')'
@@ -60,7 +60,7 @@ factor2 ::= <rept-idnest1>
 
 <multOp> ::= '*' 
 <multOp> ::= '/' 
-<multOp> ::= 'and' 
+<multOp> ::= '&' 
 
 <opt-structDecl2> ::= 'inherits' 'id' <rept-opt-structDecl22> 
 <opt-structDecl2> ::= EPSILON 

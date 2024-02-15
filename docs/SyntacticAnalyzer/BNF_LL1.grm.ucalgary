@@ -12,7 +12,7 @@ ADDOP -> or  .
 ARITHEXPR -> TERM RIGHTRECARITHEXPR  . 
 
 ARRAYSIZE -> lsqbr ARRAYSIZE2  . 
-ARRAYSIZE2 -> intlit rsqbr  . 
+ARRAYSIZE2 -> intLit rsqbr  . 
 ARRAYSIZE2 -> rsqbr  . 
 
 ASSIGNOP -> equal  . 
@@ -27,7 +27,7 @@ FPARAMS ->  .
 FPARAMSTAIL -> comma id colon TYPE REPTFPARAMSTAIL4  . 
 
 FACTOR -> id FACTOR2 REPTVARIABLEORFUNCTIONCALL  . 
-FACTOR -> intlit  . 
+FACTOR -> intLit  . 
 FACTOR -> floatlit  . 
 FACTOR -> lpar ARITHEXPR rpar  . 
 FACTOR -> not FACTOR  . 
