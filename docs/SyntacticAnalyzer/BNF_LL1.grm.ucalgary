@@ -28,7 +28,7 @@ FPARAMSTAIL -> comma id colon TYPE REPTFPARAMSTAIL4  .
 
 FACTOR -> id FACTOR2 REPTVARIABLEORFUNCTIONCALL  . 
 FACTOR -> intLit  . 
-FACTOR -> floatlit  . 
+FACTOR -> floatLit  . 
 FACTOR -> lpar ARITHEXPR rpar  . 
 FACTOR -> not FACTOR  . 
 FACTOR -> SIGN FACTOR  . 
