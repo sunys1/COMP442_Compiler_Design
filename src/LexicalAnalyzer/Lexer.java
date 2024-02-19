@@ -47,6 +47,10 @@ public class Lexer {
 		return false;
 	}
 	
+	public int getLineNum() {
+		return lineNum;
+	}
+	
 	public String trimToken(StringBuilder tokenBuilder) {
 		return tokenBuilder.toString().trim();
 	}
@@ -485,6 +489,12 @@ public class Lexer {
 			
 			lineNum += lineBreakCounter;
 		}
+		
+		if(!fileScanner.hasNext() && token == null) {
+			// Generate an eof toekn when the lexer gets to the end of the file
+			token = createToken("$", "$", lineNum);
+		}
+		
 		return token;
 	}
 }

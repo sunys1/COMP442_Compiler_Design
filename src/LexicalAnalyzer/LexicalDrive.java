@@ -49,7 +49,7 @@ public class LexicalDrive {
 				
 				Lexer lexer = new Lexer(fileScanner, tokenWriter, errorWriter);
 				// Scan tokens
-				while(fileScanner.hasNext()) {
+				while(fileScanner.hasNext() || !token.getName().equals("$")) {
 					token = lexer.nextToken();
 				}
 				

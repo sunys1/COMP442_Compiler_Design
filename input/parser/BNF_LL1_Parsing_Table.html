@@ -6,184 +6,182 @@
 </head>
 <body>
 
-<table class="grammar" align="left"><caption class="grammar"><a target="_top" href="raw-grammar.php?grammar=START+-%3E+PROG++.+%0A%0AAPARAMS+-%3E+EXPR+REPTAPARAMS1++.+%0AAPARAMS+-%3E++.+%0A%0AAPARAMSTAIL+-%3E+comma+EXPR++.+%0A%0AADDOP+-%3E+plus++.+%0AADDOP+-%3E+minus++.+%0AADDOP+-%3E+or++.+%0A%0AARITHEXPR+-%3E+TERM+RIGHTRECARITHEXPR++.+%0A%0AARRAYSIZE+-%3E+opensqbr+ARRAYSIZE2++.+%0AARRAYSIZE2+-%3E+intnum+rsqbr++.+%0AARRAYSIZE2+-%3E+rsqbr++.+%0A%0AASSIGNOP+-%3E+equal++.+%0A%0AEXPR+-%3E+ARITHEXPR+EXPR2++.+%0AEXPR2+-%3E+RELOP+ARITHEXPR++.+%0AEXPR2+-%3E++.+%0A%0AFPARAMS+-%3E+id+colon+TYPE+REPTFPARAMS3+REPTFPARAMS4++.+%0AFPARAMS+-%3E++.+%0A%0AFPARAMSTAIL+-%3E+comma+id+colon+TYPE+REPTFPARAMSTAIL4++.+%0A%0AFACTOR+-%3E+id+FACTOR2+REPTVARIABLEORFUNCTIONCALL++.+%0AFACTOR+-%3E+intnum++.+%0AFACTOR+-%3E+floatnum++.+%0AFACTOR+-%3E+openpar+ARITHEXPR+rpar++.+%0AFACTOR+-%3E+not+FACTOR++.+%0AFACTOR+-%3E+SIGN+FACTOR++.+%0A%0AFACTOR2+-%3E+openpar+APARAMS+rpar++.+%0AFACTOR2+-%3E+REPTIDNEST1++.+%0A%0AREPTVARIABLEORFUNCTIONCALL+-%3E+IDNEST+REPTVARIABLEORFUNCTIONCALL++.+%0AREPTVARIABLEORFUNCTIONCALL+-%3E++.+%0A%0AFUNCBODY+-%3E+opencurb+REPTFUNCBODY1+rcurbr++.+%0A%0AFUNCDECL+-%3E+FUNCHEAD+semi++.+%0A%0AFUNCDEF+-%3E+FUNCHEAD+FUNCBODY++.+%0A%0AFUNCHEAD+-%3E+func+id+openpar+FPARAMS+rpar+arrow+RETURNTYPE++.+%0A%0AIDNEST+-%3E+dot+id+IDNEST2++.+%0AIDNEST2+-%3E+openpar+APARAMS+rpar++.+%0AIDNEST2+-%3E+REPTIDNEST1++.+%0A%0AIMPLDEF+-%3E+impl+id+opencurb+REPTIMPLDEF3+rcurbr++.+%0A%0AINDICE+-%3E+opensqbr+ARITHEXPR+rsqbr++.+%0A%0AMEMBERDECL+-%3E+FUNCDECL++.+%0AMEMBERDECL+-%3E+VARDECL++.+%0A%0AMULTOP+-%3E+mult++.+%0AMULTOP+-%3E+div++.+%0AMULTOP+-%3E+and++.+%0A%0AOPTSTRUCTDECL2+-%3E+inherits+id+REPTOPTSTRUCTDECL22++.+%0AOPTSTRUCTDECL2+-%3E++.+%0A%0APROG+-%3E+REPTPROG0++.+%0A%0ARELEXPR+-%3E+ARITHEXPR+RELOP+ARITHEXPR++.+%0A%0ARELOP+-%3E+eq++.+%0ARELOP+-%3E+neq++.+%0ARELOP+-%3E+lt++.+%0ARELOP+-%3E+gt++.+%0ARELOP+-%3E+leq++.+%0ARELOP+-%3E+geq++.+%0A%0AREPTAPARAMS1+-%3E+APARAMSTAIL+REPTAPARAMS1++.+%0AREPTAPARAMS1+-%3E++.+%0A%0AREPTFPARAMS3+-%3E+ARRAYSIZE+REPTFPARAMS3++.+%0AREPTFPARAMS3+-%3E++.+%0A%0AREPTFPARAMS4+-%3E+FPARAMSTAIL+REPTFPARAMS4++.+%0AREPTFPARAMS4+-%3E++.+%0A%0AREPTFPARAMSTAIL4+-%3E+ARRAYSIZE+REPTFPARAMSTAIL4++.+%0AREPTFPARAMSTAIL4+-%3E++.+%0A%0AREPTFUNCBODY1+-%3E+VARDECLORSTAT+REPTFUNCBODY1++.+%0AREPTFUNCBODY1+-%3E++.+%0A%0AREPTIDNEST1+-%3E+INDICE+REPTIDNEST1++.+%0AREPTIDNEST1+-%3E++.+%0A%0AREPTIMPLDEF3+-%3E+FUNCDEF+REPTIMPLDEF3++.+%0AREPTIMPLDEF3+-%3E++.+%0A%0AREPTOPTSTRUCTDECL22+-%3E+comma+id+REPTOPTSTRUCTDECL22++.+%0AREPTOPTSTRUCTDECL22+-%3E++.+%0A%0AREPTPROG0+-%3E+STRUCTORIMPLORFUNC+REPTPROG0++.+%0AREPTPROG0+-%3E++.+%0A%0AREPTSTATBLOCK1+-%3E+STATEMENT+REPTSTATBLOCK1++.+%0AREPTSTATBLOCK1+-%3E++.+%0A%0AREPTSTRUCTDECL4+-%3E+VISIBILITY+MEMBERDECL+REPTSTRUCTDECL4++.+%0AREPTSTRUCTDECL4+-%3E++.+%0A%0AREPTVARDECL4+-%3E+ARRAYSIZE+REPTVARDECL4++.+%0AREPTVARDECL4+-%3E++.+%0A%0ARETURNTYPE+-%3E+TYPE++.+%0ARETURNTYPE+-%3E+void++.+%0A%0ARIGHTRECARITHEXPR+-%3E++.+%0ARIGHTRECARITHEXPR+-%3E+ADDOP+TERM+RIGHTRECARITHEXPR++.+%0A%0ARIGHTRECTERM+-%3E++.+%0ARIGHTRECTERM+-%3E+MULTOP+FACTOR+RIGHTRECTERM++.+%0A%0ASIGN+-%3E+plus++.+%0ASIGN+-%3E+minus++.+%0A%0ASTATBLOCK+-%3E+opencurb+REPTSTATBLOCK1+rcurbr++.+%0ASTATBLOCK+-%3E+STATEMENT++.+%0ASTATBLOCK+-%3E++.+%0A%0ASTATEMENT+-%3E+id+STATEMENT2++.++%0ASTATEMENT+-%3E+if+openpar+RELEXPR+rpar+then+STATBLOCK+else+STATBLOCK+semi++.+%0ASTATEMENT+-%3E+while+openpar+RELEXPR+rpar+STATBLOCK+semi++.+%0ASTATEMENT+-%3E+read+openpar+VARIABLE+rpar+semi++.+%0ASTATEMENT+-%3E+write+openpar+EXPR+rpar+semi++.+%0ASTATEMENT+-%3E+return+openpar+EXPR+rpar+semi++.+%0ASTATEMENT2+-%3E+REPTIDNEST1+STATEMENT3++.+%0ASTATEMENT2+-%3E+openpar+APARAMS+rpar+STATEMENT4++.+%0ASTATEMENT3+-%3E+dot+id+STATEMENT2++.+%0ASTATEMENT3+-%3E+ASSIGNOP+EXPR+semi++.+%0ASTATEMENT4+-%3E+dot+id+STATEMENT2++.+%0ASTATEMENT4+-%3E+semi++.+%0A%0ASTRUCTDECL+-%3E+struct+id+OPTSTRUCTDECL2+opencurb+REPTSTRUCTDECL4+rcurbr+semi++.+%0A%0ASTRUCTORIMPLORFUNC+-%3E+STRUCTDECL++.+%0ASTRUCTORIMPLORFUNC+-%3E+IMPLDEF++.+%0ASTRUCTORIMPLORFUNC+-%3E+FUNCDEF++.+%0A%0ATERM+-%3E+FACTOR+RIGHTRECTERM++.+%0A%0ATYPE+-%3E+integer++.+%0ATYPE+-%3E+float++.+%0ATYPE+-%3E+id++.+%0A%0AVARDECL+-%3E+let+id+colon+TYPE+REPTVARDECL4+semi++.+%0A%0AVARDECLORSTAT+-%3E+VARDECL++.+%0AVARDECLORSTAT+-%3E+STATEMENT++.+%0A%0AVARIABLE+-%3E+id+VARIABLE2++.+%0A%0AVARIABLE2+-%3E+REPTIDNEST1+REPTVARIABLE++.+%0AVARIABLE2+-%3E+openpar+APARAMS+rpar+VARIDNEST++.++++%0A%0AREPTVARIABLE+-%3E+VARIDNEST+REPTVARIABLE++.+%0AREPTVARIABLE+-%3E++.+%0A%0AVARIDNEST+-%3E+dot+id+VARIDNEST2++.+%0AVARIDNEST2+-%3E+openpar+APARAMS+rpar+VARIDNEST++.+%0AVARIDNEST2+-%3E+REPTIDNEST1++.+%0A%0AVISIBILITY+-%3E+public++.+%0AVISIBILITY+-%3E+private++.+&substs=">Grammar</a></caption><tr><td>
-START &rarr;</td><td> PROG  .</td></tr><tr><td> 
+<table class="grammar" align="left"><caption class="grammar"><a target="_top" href="raw-grammar.php?grammar=START+-%3E+REPTPROG0.%0A%0AAPARAMS+-%3E+EXPR+REPTAPARAMS1.%0AAPARAMS+-%3E.%0A%0AAPARAMSTAIL+-%3E+comma+EXPR.%0A%0AADDOP+-%3E+plus.%0AADDOP+-%3E+minus.%0AADDOP+-%3E+or.%0A%0AARITHEXPR+-%3E+TERM+RIGHTRECARITHEXPR.%0A%0AARRAYSIZE+-%3E+opensqbr+ARRAYSIZE2.%0AARRAYSIZE2+-%3E+intnum+closesqbr.%0AARRAYSIZE2+-%3E+closesqbr.%0A%0AASSIGNOP+-%3E+assign.%0A%0AEXPR+-%3E+ARITHEXPR+EXPR2.%0AEXPR2+-%3E+RELOP+ARITHEXPR.%0AEXPR2+-%3E.%0A%0AFPARAMS+-%3E+id+colon+TYPE+REPTFPARAMS3+REPTFPARAMS4.%0AFPARAMS+-%3E.%0A%0AFPARAMSTAIL+-%3E+comma+id+colon+TYPE+REPTFPARAMSTAIL4.%0A%0AFACTOR+-%3E+id+FACTOR2+REPTVARIABLEORFUNCTIONCALL.%0AFACTOR+-%3E+intnum.%0AFACTOR+-%3E+floatnum.%0AFACTOR+-%3E+openpar+ARITHEXPR+closepar.%0AFACTOR+-%3E+not+FACTOR.%0AFACTOR+-%3E+SIGN+FACTOR.%0A%0AFACTOR2+-%3E+openpar+APARAMS+closepar.%0AFACTOR2+-%3E+REPTIDNEST1.%0A%0AREPTVARIABLEORFUNCTIONCALL+-%3E+IDNEST+REPTVARIABLEORFUNCTIONCALL.%0AREPTVARIABLEORFUNCTIONCALL+-%3E.%0A%0AFUNCBODY+-%3E+opencubr+REPTFUNCBODY1+closecubr.%0A%0AFUNCDECL+-%3E+FUNCHEAD+semi.%0A%0AFUNCDEF+-%3E+FUNCHEAD+FUNCBODY.%0A%0AFUNCHEAD+-%3E+func+id+openpar+FPARAMS+closepar+arrow+RETURNTYPE.%0A%0AIDNEST+-%3E+dot+id+IDNEST2.%0AIDNEST2+-%3E+openpar+APARAMS+closepar.%0AIDNEST2+-%3E+REPTIDNEST1.%0A%0AIMPLDEF+-%3E+impl+id+opencubr+REPTIMPLDEF3+closecubr.%0A%0AINDICE+-%3E+opensqbr+ARITHEXPR+closesqbr.%0A%0AMEMBERDECL+-%3E+FUNCDECL.%0AMEMBERDECL+-%3E+VARDECL.%0A%0AMULTOP+-%3E+mult.%0AMULTOP+-%3E+div.%0AMULTOP+-%3E+and.%0A%0AOPTSTRUCTDECL2+-%3E+inherits+id+REPTOPTSTRUCTDECL22.%0AOPTSTRUCTDECL2+-%3E.%0A%0ARELEXPR+-%3E+ARITHEXPR+RELOP+ARITHEXPR.%0A%0ARELOP+-%3E+eq.%0ARELOP+-%3E+neq.%0ARELOP+-%3E+lt.%0ARELOP+-%3E+gt.%0ARELOP+-%3E+leq.%0ARELOP+-%3E+geq.%0A%0AREPTAPARAMS1+-%3E+APARAMSTAIL+REPTAPARAMS1.%0AREPTAPARAMS1+-%3E.%0A%0AREPTFPARAMS3+-%3E+ARRAYSIZE+REPTFPARAMS3.%0AREPTFPARAMS3+-%3E.%0A%0AREPTFPARAMS4+-%3E+FPARAMSTAIL+REPTFPARAMS4.%0AREPTFPARAMS4+-%3E.%0A%0AREPTFPARAMSTAIL4+-%3E+ARRAYSIZE+REPTFPARAMSTAIL4.%0AREPTFPARAMSTAIL4+-%3E.%0A%0AREPTFUNCBODY1+-%3E+VARDECLORSTAT+REPTFUNCBODY1.%0AREPTFUNCBODY1+-%3E.%0A%0AREPTIDNEST1+-%3E+INDICE+REPTIDNEST1.%0AREPTIDNEST1+-%3E.%0A%0AREPTIMPLDEF3+-%3E+FUNCDEF+REPTIMPLDEF3.%0AREPTIMPLDEF3+-%3E.%0A%0AREPTOPTSTRUCTDECL22+-%3E+comma+id+REPTOPTSTRUCTDECL22.%0AREPTOPTSTRUCTDECL22+-%3E.%0A%0AREPTPROG0+-%3E+STRUCTORIMPLORFUNC+REPTPROG0.%0AREPTPROG0+-%3E.%0A%0AREPTSTATBLOCK1+-%3E+STATEMENT+REPTSTATBLOCK1.%0AREPTSTATBLOCK1+-%3E.%0A%0AREPTSTRUCTDECL4+-%3E+VISIBILITY+MEMBERDECL+REPTSTRUCTDECL4.%0AREPTSTRUCTDECL4+-%3E.%0A%0AREPTVARDECL4+-%3E+ARRAYSIZE+REPTVARDECL4.%0AREPTVARDECL4+-%3E.%0A%0ARETURNTYPE+-%3E+TYPE.%0ARETURNTYPE+-%3E+void.%0A%0ARIGHTRECARITHEXPR+-%3E.%0ARIGHTRECARITHEXPR+-%3E+ADDOP+TERM+RIGHTRECARITHEXPR.%0A%0ARIGHTRECTERM+-%3E.%0ARIGHTRECTERM+-%3E+MULTOP+FACTOR+RIGHTRECTERM.%0A%0ASIGN+-%3E+plus.%0ASIGN+-%3E+minus.%0A%0ASTATBLOCK+-%3E+opencubr+REPTSTATBLOCK1+closecubr.%0ASTATBLOCK+-%3E+STATEMENT.%0ASTATBLOCK+-%3E.%0A%0ASTATEMENT+-%3E+id+STATEMENT2.+%0ASTATEMENT+-%3E+if+openpar+RELEXPR+closepar+then+STATBLOCK+else+STATBLOCK+semi.%0ASTATEMENT+-%3E+while+openpar+RELEXPR+closepar+STATBLOCK+semi.%0ASTATEMENT+-%3E+read+openpar+VARIABLE+closepar+semi.%0ASTATEMENT+-%3E+write+openpar+EXPR+closepar+semi.%0ASTATEMENT+-%3E+return+openpar+EXPR+closepar+semi.%0ASTATEMENT2+-%3E+REPTIDNEST1+STATEMENT3.%0ASTATEMENT2+-%3E+openpar+APARAMS+closepar+STATEMENT4.%0ASTATEMENT3+-%3E+dot+id+STATEMENT2.%0ASTATEMENT3+-%3E+ASSIGNOP+EXPR+semi.%0ASTATEMENT4+-%3E+dot+id+STATEMENT2.%0ASTATEMENT4+-%3E+semi.%0A%0ASTRUCTDECL+-%3E+struct+id+OPTSTRUCTDECL2+opencubr+REPTSTRUCTDECL4+closecubr+semi.%0A%0ASTRUCTORIMPLORFUNC+-%3E+STRUCTDECL.%0ASTRUCTORIMPLORFUNC+-%3E+IMPLDEF.%0ASTRUCTORIMPLORFUNC+-%3E+FUNCDEF.%0A%0ATERM+-%3E+FACTOR+RIGHTRECTERM.%0A%0ATYPE+-%3E+integer.%0ATYPE+-%3E+float.%0ATYPE+-%3E+id.%0A%0AVARDECL+-%3E+let+id+colon+TYPE+REPTVARDECL4+semi.%0A%0AVARDECLORSTAT+-%3E+VARDECL.%0AVARDECLORSTAT+-%3E+STATEMENT.%0A%0AVARIABLE+-%3E+id+VARIABLE2.%0A%0AVARIABLE2+-%3E+REPTIDNEST1+REPTVARIABLE.%0AVARIABLE2+-%3E+openpar+APARAMS+closepar+VARIDNEST.+++%0A%0AREPTVARIABLE+-%3E+VARIDNEST+REPTVARIABLE.%0AREPTVARIABLE+-%3E.%0A%0AVARIDNEST+-%3E+dot+id+VARIDNEST2.%0AVARIDNEST2+-%3E+openpar+APARAMS+closepar+VARIDNEST.%0AVARIDNEST2+-%3E+REPTIDNEST1.%0A%0AVISIBILITY+-%3E+public.%0AVISIBILITY+-%3E+private.&substs=">Grammar</a></caption><tr><td>
+START &rarr;</td><td> REPTPROG0.</td></tr><tr><td>
 
-APARAMS &rarr;</td><td> EXPR REPTAPARAMS1  .</td></tr><tr><td> 
-APARAMS &rarr;</td><td>  .</td></tr><tr><td> 
+APARAMS &rarr;</td><td> EXPR REPTAPARAMS1.</td></tr><tr><td>
+APARAMS &rarr;</td><td>.</td></tr><tr><td>
 
-APARAMSTAIL &rarr;</td><td> comma EXPR  .</td></tr><tr><td> 
+APARAMSTAIL &rarr;</td><td> comma EXPR.</td></tr><tr><td>
 
-ADDOP &rarr;</td><td> plus  .</td></tr><tr><td> 
-ADDOP &rarr;</td><td> minus  .</td></tr><tr><td> 
-ADDOP &rarr;</td><td> or  .</td></tr><tr><td> 
+ADDOP &rarr;</td><td> plus.</td></tr><tr><td>
+ADDOP &rarr;</td><td> minus.</td></tr><tr><td>
+ADDOP &rarr;</td><td> or.</td></tr><tr><td>
 
-ARITHEXPR &rarr;</td><td> TERM RIGHTRECARITHEXPR  .</td></tr><tr><td> 
+ARITHEXPR &rarr;</td><td> TERM RIGHTRECARITHEXPR.</td></tr><tr><td>
 
-ARRAYSIZE &rarr;</td><td> opensqbr ARRAYSIZE2  .</td></tr><tr><td> 
-ARRAYSIZE2 &rarr;</td><td> intnum rsqbr  .</td></tr><tr><td> 
-ARRAYSIZE2 &rarr;</td><td> rsqbr  .</td></tr><tr><td> 
+ARRAYSIZE &rarr;</td><td> opensqbr ARRAYSIZE2.</td></tr><tr><td>
+ARRAYSIZE2 &rarr;</td><td> intnum closesqbr.</td></tr><tr><td>
+ARRAYSIZE2 &rarr;</td><td> closesqbr.</td></tr><tr><td>
 
-ASSIGNOP &rarr;</td><td> equal  .</td></tr><tr><td> 
+ASSIGNOP &rarr;</td><td> assign.</td></tr><tr><td>
 
-EXPR &rarr;</td><td> ARITHEXPR EXPR2  .</td></tr><tr><td> 
-EXPR2 &rarr;</td><td> RELOP ARITHEXPR  .</td></tr><tr><td> 
-EXPR2 &rarr;</td><td>  .</td></tr><tr><td> 
+EXPR &rarr;</td><td> ARITHEXPR EXPR2.</td></tr><tr><td>
+EXPR2 &rarr;</td><td> RELOP ARITHEXPR.</td></tr><tr><td>
+EXPR2 &rarr;</td><td>.</td></tr><tr><td>
 
-FPARAMS &rarr;</td><td> id colon TYPE REPTFPARAMS3 REPTFPARAMS4  .</td></tr><tr><td> 
-FPARAMS &rarr;</td><td>  .</td></tr><tr><td> 
+FPARAMS &rarr;</td><td> id colon TYPE REPTFPARAMS3 REPTFPARAMS4.</td></tr><tr><td>
+FPARAMS &rarr;</td><td>.</td></tr><tr><td>
 
-FPARAMSTAIL &rarr;</td><td> comma id colon TYPE REPTFPARAMSTAIL4  .</td></tr><tr><td> 
+FPARAMSTAIL &rarr;</td><td> comma id colon TYPE REPTFPARAMSTAIL4.</td></tr><tr><td>
 
-FACTOR &rarr;</td><td> id FACTOR2 REPTVARIABLEORFUNCTIONCALL  .</td></tr><tr><td> 
-FACTOR &rarr;</td><td> intnum  .</td></tr><tr><td> 
-FACTOR &rarr;</td><td> floatnum  .</td></tr><tr><td> 
-FACTOR &rarr;</td><td> openpar ARITHEXPR rpar  .</td></tr><tr><td> 
-FACTOR &rarr;</td><td> not FACTOR  .</td></tr><tr><td> 
-FACTOR &rarr;</td><td> SIGN FACTOR  .</td></tr><tr><td> 
+FACTOR &rarr;</td><td> id FACTOR2 REPTVARIABLEORFUNCTIONCALL.</td></tr><tr><td>
+FACTOR &rarr;</td><td> intnum.</td></tr><tr><td>
+FACTOR &rarr;</td><td> floatnum.</td></tr><tr><td>
+FACTOR &rarr;</td><td> openpar ARITHEXPR closepar.</td></tr><tr><td>
+FACTOR &rarr;</td><td> not FACTOR.</td></tr><tr><td>
+FACTOR &rarr;</td><td> SIGN FACTOR.</td></tr><tr><td>
 
-FACTOR2 &rarr;</td><td> openpar APARAMS rpar  .</td></tr><tr><td> 
-FACTOR2 &rarr;</td><td> REPTIDNEST1  .</td></tr><tr><td> 
+FACTOR2 &rarr;</td><td> openpar APARAMS closepar.</td></tr><tr><td>
+FACTOR2 &rarr;</td><td> REPTIDNEST1.</td></tr><tr><td>
 
-REPTVARIABLEORFUNCTIONCALL &rarr;</td><td> IDNEST REPTVARIABLEORFUNCTIONCALL  .</td></tr><tr><td> 
-REPTVARIABLEORFUNCTIONCALL &rarr;</td><td>  .</td></tr><tr><td> 
+REPTVARIABLEORFUNCTIONCALL &rarr;</td><td> IDNEST REPTVARIABLEORFUNCTIONCALL.</td></tr><tr><td>
+REPTVARIABLEORFUNCTIONCALL &rarr;</td><td>.</td></tr><tr><td>
 
-FUNCBODY &rarr;</td><td> opencurb REPTFUNCBODY1 rcurbr  .</td></tr><tr><td> 
+FUNCBODY &rarr;</td><td> opencubr REPTFUNCBODY1 closecubr.</td></tr><tr><td>
 
-FUNCDECL &rarr;</td><td> FUNCHEAD semi  .</td></tr><tr><td> 
+FUNCDECL &rarr;</td><td> FUNCHEAD semi.</td></tr><tr><td>
 
-FUNCDEF &rarr;</td><td> FUNCHEAD FUNCBODY  .</td></tr><tr><td> 
+FUNCDEF &rarr;</td><td> FUNCHEAD FUNCBODY.</td></tr><tr><td>
 
-FUNCHEAD &rarr;</td><td> func id openpar FPARAMS rpar arrow RETURNTYPE  .</td></tr><tr><td> 
+FUNCHEAD &rarr;</td><td> func id openpar FPARAMS closepar arrow RETURNTYPE.</td></tr><tr><td>
 
-IDNEST &rarr;</td><td> dot id IDNEST2  .</td></tr><tr><td> 
-IDNEST2 &rarr;</td><td> openpar APARAMS rpar  .</td></tr><tr><td> 
-IDNEST2 &rarr;</td><td> REPTIDNEST1  .</td></tr><tr><td> 
+IDNEST &rarr;</td><td> dot id IDNEST2.</td></tr><tr><td>
+IDNEST2 &rarr;</td><td> openpar APARAMS closepar.</td></tr><tr><td>
+IDNEST2 &rarr;</td><td> REPTIDNEST1.</td></tr><tr><td>
 
-IMPLDEF &rarr;</td><td> impl id opencurb REPTIMPLDEF3 rcurbr  .</td></tr><tr><td> 
+IMPLDEF &rarr;</td><td> impl id opencubr REPTIMPLDEF3 closecubr.</td></tr><tr><td>
 
-INDICE &rarr;</td><td> opensqbr ARITHEXPR rsqbr  .</td></tr><tr><td> 
+INDICE &rarr;</td><td> opensqbr ARITHEXPR closesqbr.</td></tr><tr><td>
 
-MEMBERDECL &rarr;</td><td> FUNCDECL  .</td></tr><tr><td> 
-MEMBERDECL &rarr;</td><td> VARDECL  .</td></tr><tr><td> 
+MEMBERDECL &rarr;</td><td> FUNCDECL.</td></tr><tr><td>
+MEMBERDECL &rarr;</td><td> VARDECL.</td></tr><tr><td>
 
-MULTOP &rarr;</td><td> mult  .</td></tr><tr><td> 
-MULTOP &rarr;</td><td> div  .</td></tr><tr><td> 
-MULTOP &rarr;</td><td> and  .</td></tr><tr><td> 
+MULTOP &rarr;</td><td> mult.</td></tr><tr><td>
+MULTOP &rarr;</td><td> div.</td></tr><tr><td>
+MULTOP &rarr;</td><td> and.</td></tr><tr><td>
 
-OPTSTRUCTDECL2 &rarr;</td><td> inherits id REPTOPTSTRUCTDECL22  .</td></tr><tr><td> 
-OPTSTRUCTDECL2 &rarr;</td><td>  .</td></tr><tr><td> 
+OPTSTRUCTDECL2 &rarr;</td><td> inherits id REPTOPTSTRUCTDECL22.</td></tr><tr><td>
+OPTSTRUCTDECL2 &rarr;</td><td>.</td></tr><tr><td>
 
-PROG &rarr;</td><td> REPTPROG0  .</td></tr><tr><td> 
+RELEXPR &rarr;</td><td> ARITHEXPR RELOP ARITHEXPR.</td></tr><tr><td>
 
-RELEXPR &rarr;</td><td> ARITHEXPR RELOP ARITHEXPR  .</td></tr><tr><td> 
+RELOP &rarr;</td><td> eq.</td></tr><tr><td>
+RELOP &rarr;</td><td> neq.</td></tr><tr><td>
+RELOP &rarr;</td><td> lt.</td></tr><tr><td>
+RELOP &rarr;</td><td> gt.</td></tr><tr><td>
+RELOP &rarr;</td><td> leq.</td></tr><tr><td>
+RELOP &rarr;</td><td> geq.</td></tr><tr><td>
 
-RELOP &rarr;</td><td> eq  .</td></tr><tr><td> 
-RELOP &rarr;</td><td> neq  .</td></tr><tr><td> 
-RELOP &rarr;</td><td> lt  .</td></tr><tr><td> 
-RELOP &rarr;</td><td> gt  .</td></tr><tr><td> 
-RELOP &rarr;</td><td> leq  .</td></tr><tr><td> 
-RELOP &rarr;</td><td> geq  .</td></tr><tr><td> 
+REPTAPARAMS1 &rarr;</td><td> APARAMSTAIL REPTAPARAMS1.</td></tr><tr><td>
+REPTAPARAMS1 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTAPARAMS1 &rarr;</td><td> APARAMSTAIL REPTAPARAMS1  .</td></tr><tr><td> 
-REPTAPARAMS1 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTFPARAMS3 &rarr;</td><td> ARRAYSIZE REPTFPARAMS3.</td></tr><tr><td>
+REPTFPARAMS3 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTFPARAMS3 &rarr;</td><td> ARRAYSIZE REPTFPARAMS3  .</td></tr><tr><td> 
-REPTFPARAMS3 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTFPARAMS4 &rarr;</td><td> FPARAMSTAIL REPTFPARAMS4.</td></tr><tr><td>
+REPTFPARAMS4 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTFPARAMS4 &rarr;</td><td> FPARAMSTAIL REPTFPARAMS4  .</td></tr><tr><td> 
-REPTFPARAMS4 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTFPARAMSTAIL4 &rarr;</td><td> ARRAYSIZE REPTFPARAMSTAIL4.</td></tr><tr><td>
+REPTFPARAMSTAIL4 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTFPARAMSTAIL4 &rarr;</td><td> ARRAYSIZE REPTFPARAMSTAIL4  .</td></tr><tr><td> 
-REPTFPARAMSTAIL4 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTFUNCBODY1 &rarr;</td><td> VARDECLORSTAT REPTFUNCBODY1.</td></tr><tr><td>
+REPTFUNCBODY1 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTFUNCBODY1 &rarr;</td><td> VARDECLORSTAT REPTFUNCBODY1  .</td></tr><tr><td> 
-REPTFUNCBODY1 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTIDNEST1 &rarr;</td><td> INDICE REPTIDNEST1.</td></tr><tr><td>
+REPTIDNEST1 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTIDNEST1 &rarr;</td><td> INDICE REPTIDNEST1  .</td></tr><tr><td> 
-REPTIDNEST1 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTIMPLDEF3 &rarr;</td><td> FUNCDEF REPTIMPLDEF3.</td></tr><tr><td>
+REPTIMPLDEF3 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTIMPLDEF3 &rarr;</td><td> FUNCDEF REPTIMPLDEF3  .</td></tr><tr><td> 
-REPTIMPLDEF3 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTOPTSTRUCTDECL22 &rarr;</td><td> comma id REPTOPTSTRUCTDECL22.</td></tr><tr><td>
+REPTOPTSTRUCTDECL22 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTOPTSTRUCTDECL22 &rarr;</td><td> comma id REPTOPTSTRUCTDECL22  .</td></tr><tr><td> 
-REPTOPTSTRUCTDECL22 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTPROG0 &rarr;</td><td> STRUCTORIMPLORFUNC REPTPROG0.</td></tr><tr><td>
+REPTPROG0 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTPROG0 &rarr;</td><td> STRUCTORIMPLORFUNC REPTPROG0  .</td></tr><tr><td> 
-REPTPROG0 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTSTATBLOCK1 &rarr;</td><td> STATEMENT REPTSTATBLOCK1.</td></tr><tr><td>
+REPTSTATBLOCK1 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTSTATBLOCK1 &rarr;</td><td> STATEMENT REPTSTATBLOCK1  .</td></tr><tr><td> 
-REPTSTATBLOCK1 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTSTRUCTDECL4 &rarr;</td><td> VISIBILITY MEMBERDECL REPTSTRUCTDECL4.</td></tr><tr><td>
+REPTSTRUCTDECL4 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTSTRUCTDECL4 &rarr;</td><td> VISIBILITY MEMBERDECL REPTSTRUCTDECL4  .</td></tr><tr><td> 
-REPTSTRUCTDECL4 &rarr;</td><td>  .</td></tr><tr><td> 
+REPTVARDECL4 &rarr;</td><td> ARRAYSIZE REPTVARDECL4.</td></tr><tr><td>
+REPTVARDECL4 &rarr;</td><td>.</td></tr><tr><td>
 
-REPTVARDECL4 &rarr;</td><td> ARRAYSIZE REPTVARDECL4  .</td></tr><tr><td> 
-REPTVARDECL4 &rarr;</td><td>  .</td></tr><tr><td> 
+RETURNTYPE &rarr;</td><td> TYPE.</td></tr><tr><td>
+RETURNTYPE &rarr;</td><td> void.</td></tr><tr><td>
 
-RETURNTYPE &rarr;</td><td> TYPE  .</td></tr><tr><td> 
-RETURNTYPE &rarr;</td><td> void  .</td></tr><tr><td> 
+RIGHTRECARITHEXPR &rarr;</td><td>.</td></tr><tr><td>
+RIGHTRECARITHEXPR &rarr;</td><td> ADDOP TERM RIGHTRECARITHEXPR.</td></tr><tr><td>
 
-RIGHTRECARITHEXPR &rarr;</td><td>  .</td></tr><tr><td> 
-RIGHTRECARITHEXPR &rarr;</td><td> ADDOP TERM RIGHTRECARITHEXPR  .</td></tr><tr><td> 
+RIGHTRECTERM &rarr;</td><td>.</td></tr><tr><td>
+RIGHTRECTERM &rarr;</td><td> MULTOP FACTOR RIGHTRECTERM.</td></tr><tr><td>
 
-RIGHTRECTERM &rarr;</td><td>  .</td></tr><tr><td> 
-RIGHTRECTERM &rarr;</td><td> MULTOP FACTOR RIGHTRECTERM  .</td></tr><tr><td> 
+SIGN &rarr;</td><td> plus.</td></tr><tr><td>
+SIGN &rarr;</td><td> minus.</td></tr><tr><td>
 
-SIGN &rarr;</td><td> plus  .</td></tr><tr><td> 
-SIGN &rarr;</td><td> minus  .</td></tr><tr><td> 
+STATBLOCK &rarr;</td><td> opencubr REPTSTATBLOCK1 closecubr.</td></tr><tr><td>
+STATBLOCK &rarr;</td><td> STATEMENT.</td></tr><tr><td>
+STATBLOCK &rarr;</td><td>.</td></tr><tr><td>
 
-STATBLOCK &rarr;</td><td> opencurb REPTSTATBLOCK1 rcurbr  .</td></tr><tr><td> 
-STATBLOCK &rarr;</td><td> STATEMENT  .</td></tr><tr><td> 
-STATBLOCK &rarr;</td><td>  .</td></tr><tr><td> 
+STATEMENT &rarr;</td><td> id STATEMENT2.</td></tr><tr><td> 
+STATEMENT &rarr;</td><td> if openpar RELEXPR closepar then STATBLOCK else STATBLOCK semi.</td></tr><tr><td>
+STATEMENT &rarr;</td><td> while openpar RELEXPR closepar STATBLOCK semi.</td></tr><tr><td>
+STATEMENT &rarr;</td><td> read openpar VARIABLE closepar semi.</td></tr><tr><td>
+STATEMENT &rarr;</td><td> write openpar EXPR closepar semi.</td></tr><tr><td>
+STATEMENT &rarr;</td><td> return openpar EXPR closepar semi.</td></tr><tr><td>
+STATEMENT2 &rarr;</td><td> REPTIDNEST1 STATEMENT3.</td></tr><tr><td>
+STATEMENT2 &rarr;</td><td> openpar APARAMS closepar STATEMENT4.</td></tr><tr><td>
+STATEMENT3 &rarr;</td><td> dot id STATEMENT2.</td></tr><tr><td>
+STATEMENT3 &rarr;</td><td> ASSIGNOP EXPR semi.</td></tr><tr><td>
+STATEMENT4 &rarr;</td><td> dot id STATEMENT2.</td></tr><tr><td>
+STATEMENT4 &rarr;</td><td> semi.</td></tr><tr><td>
 
-STATEMENT &rarr;</td><td> id STATEMENT2  .</td></tr><tr><td>  
-STATEMENT &rarr;</td><td> if openpar RELEXPR rpar then STATBLOCK else STATBLOCK semi  .</td></tr><tr><td> 
-STATEMENT &rarr;</td><td> while openpar RELEXPR rpar STATBLOCK semi  .</td></tr><tr><td> 
-STATEMENT &rarr;</td><td> read openpar VARIABLE rpar semi  .</td></tr><tr><td> 
-STATEMENT &rarr;</td><td> write openpar EXPR rpar semi  .</td></tr><tr><td> 
-STATEMENT &rarr;</td><td> return openpar EXPR rpar semi  .</td></tr><tr><td> 
-STATEMENT2 &rarr;</td><td> REPTIDNEST1 STATEMENT3  .</td></tr><tr><td> 
-STATEMENT2 &rarr;</td><td> openpar APARAMS rpar STATEMENT4  .</td></tr><tr><td> 
-STATEMENT3 &rarr;</td><td> dot id STATEMENT2  .</td></tr><tr><td> 
-STATEMENT3 &rarr;</td><td> ASSIGNOP EXPR semi  .</td></tr><tr><td> 
-STATEMENT4 &rarr;</td><td> dot id STATEMENT2  .</td></tr><tr><td> 
-STATEMENT4 &rarr;</td><td> semi  .</td></tr><tr><td> 
+STRUCTDECL &rarr;</td><td> struct id OPTSTRUCTDECL2 opencubr REPTSTRUCTDECL4 closecubr semi.</td></tr><tr><td>
 
-STRUCTDECL &rarr;</td><td> struct id OPTSTRUCTDECL2 opencurb REPTSTRUCTDECL4 rcurbr semi  .</td></tr><tr><td> 
+STRUCTORIMPLORFUNC &rarr;</td><td> STRUCTDECL.</td></tr><tr><td>
+STRUCTORIMPLORFUNC &rarr;</td><td> IMPLDEF.</td></tr><tr><td>
+STRUCTORIMPLORFUNC &rarr;</td><td> FUNCDEF.</td></tr><tr><td>
 
-STRUCTORIMPLORFUNC &rarr;</td><td> STRUCTDECL  .</td></tr><tr><td> 
-STRUCTORIMPLORFUNC &rarr;</td><td> IMPLDEF  .</td></tr><tr><td> 
-STRUCTORIMPLORFUNC &rarr;</td><td> FUNCDEF  .</td></tr><tr><td> 
+TERM &rarr;</td><td> FACTOR RIGHTRECTERM.</td></tr><tr><td>
 
-TERM &rarr;</td><td> FACTOR RIGHTRECTERM  .</td></tr><tr><td> 
+TYPE &rarr;</td><td> integer.</td></tr><tr><td>
+TYPE &rarr;</td><td> float.</td></tr><tr><td>
+TYPE &rarr;</td><td> id.</td></tr><tr><td>
 
-TYPE &rarr;</td><td> integer  .</td></tr><tr><td> 
-TYPE &rarr;</td><td> float  .</td></tr><tr><td> 
-TYPE &rarr;</td><td> id  .</td></tr><tr><td> 
+VARDECL &rarr;</td><td> let id colon TYPE REPTVARDECL4 semi.</td></tr><tr><td>
 
-VARDECL &rarr;</td><td> let id colon TYPE REPTVARDECL4 semi  .</td></tr><tr><td> 
+VARDECLORSTAT &rarr;</td><td> VARDECL.</td></tr><tr><td>
+VARDECLORSTAT &rarr;</td><td> STATEMENT.</td></tr><tr><td>
 
-VARDECLORSTAT &rarr;</td><td> VARDECL  .</td></tr><tr><td> 
-VARDECLORSTAT &rarr;</td><td> STATEMENT  .</td></tr><tr><td> 
+VARIABLE &rarr;</td><td> id VARIABLE2.</td></tr><tr><td>
 
-VARIABLE &rarr;</td><td> id VARIABLE2  .</td></tr><tr><td> 
+VARIABLE2 &rarr;</td><td> REPTIDNEST1 REPTVARIABLE.</td></tr><tr><td>
+VARIABLE2 &rarr;</td><td> openpar APARAMS closepar VARIDNEST.</td></tr><tr><td>   
 
-VARIABLE2 &rarr;</td><td> REPTIDNEST1 REPTVARIABLE  .</td></tr><tr><td> 
-VARIABLE2 &rarr;</td><td> openpar APARAMS rpar VARIDNEST  .</td></tr><tr><td>    
+REPTVARIABLE &rarr;</td><td> VARIDNEST REPTVARIABLE.</td></tr><tr><td>
+REPTVARIABLE &rarr;</td><td>.</td></tr><tr><td>
 
-REPTVARIABLE &rarr;</td><td> VARIDNEST REPTVARIABLE  .</td></tr><tr><td> 
-REPTVARIABLE &rarr;</td><td>  .</td></tr><tr><td> 
+VARIDNEST &rarr;</td><td> dot id VARIDNEST2.</td></tr><tr><td>
+VARIDNEST2 &rarr;</td><td> openpar APARAMS closepar VARIDNEST.</td></tr><tr><td>
+VARIDNEST2 &rarr;</td><td> REPTIDNEST1.</td></tr><tr><td>
 
-VARIDNEST &rarr;</td><td> dot id VARIDNEST2  .</td></tr><tr><td> 
-VARIDNEST2 &rarr;</td><td> openpar APARAMS rpar VARIDNEST  .</td></tr><tr><td> 
-VARIDNEST2 &rarr;</td><td> REPTIDNEST1  .</td></tr><tr><td> 
-
-VISIBILITY &rarr;</td><td> public  .</td></tr><tr><td> 
-VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table class="parse_table" border="1">
-<tr><td></td><th><terminal>$</terminal></th><th><terminal>private</terminal></th><th><terminal>public</terminal></th><th><terminal>rpar</terminal></th><th><terminal>openpar</terminal></th><th><terminal>id</terminal></th><th><terminal>dot</terminal></th><th><terminal>semi</terminal></th><th><terminal>colon</terminal></th><th><terminal>let</terminal></th><th><terminal>float</terminal></th><th><terminal>integer</terminal></th><th><terminal>rcurbr</terminal></th><th><terminal>opencurb</terminal></th><th><terminal>struct</terminal></th><th><terminal>return</terminal></th><th><terminal>write</terminal></th><th><terminal>read</terminal></th><th><terminal>while</terminal></th><th><terminal>else</terminal></th><th><terminal>then</terminal></th><th><terminal>if</terminal></th><th><terminal>minus</terminal></th><th><terminal>plus</terminal></th><th><terminal>void</terminal></th><th><terminal>comma</terminal></th><th><terminal>geq</terminal></th><th><terminal>leq</terminal></th><th><terminal>gt</terminal></th><th><terminal>lt</terminal></th><th><terminal>neq</terminal></th><th><terminal>eq</terminal></th><th><terminal>inherits</terminal></th><th><terminal>and</terminal></th><th><terminal>div</terminal></th><th><terminal>mult</terminal></th><th><terminal>rsqbr</terminal></th><th><terminal>opensqbr</terminal></th><th><terminal>impl</terminal></th><th><terminal>arrow</terminal></th><th><terminal>func</terminal></th><th><terminal>not</terminal></th><th><terminal>floatnum</terminal></th><th><terminal>intnum</terminal></th><th><terminal>equal</terminal></th><th><terminal>or</terminal></th></tr>
+VISIBILITY &rarr;</td><td> public.</td></tr><tr><td>
+VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table class="parse_table" border="1">
+<tr><td></td><th><terminal>$</terminal></th><th><terminal>private</terminal></th><th><terminal>public</terminal></th><th><terminal>closepar</terminal></th><th><terminal>openpar</terminal></th><th><terminal>id</terminal></th><th><terminal>dot</terminal></th><th><terminal>semi</terminal></th><th><terminal>colon</terminal></th><th><terminal>let</terminal></th><th><terminal>float</terminal></th><th><terminal>integer</terminal></th><th><terminal>closecubr</terminal></th><th><terminal>opencubr</terminal></th><th><terminal>struct</terminal></th><th><terminal>return</terminal></th><th><terminal>write</terminal></th><th><terminal>read</terminal></th><th><terminal>while</terminal></th><th><terminal>else</terminal></th><th><terminal>then</terminal></th><th><terminal>if</terminal></th><th><terminal>minus</terminal></th><th><terminal>plus</terminal></th><th><terminal>void</terminal></th><th><terminal>comma</terminal></th><th><terminal>geq</terminal></th><th><terminal>leq</terminal></th><th><terminal>gt</terminal></th><th><terminal>lt</terminal></th><th><terminal>neq</terminal></th><th><terminal>eq</terminal></th><th><terminal>inherits</terminal></th><th><terminal>and</terminal></th><th><terminal>div</terminal></th><th><terminal>mult</terminal></th><th><terminal>closesqbr</terminal></th><th><terminal>opensqbr</terminal></th><th><terminal>impl</terminal></th><th><terminal>arrow</terminal></th><th><terminal>func</terminal></th><th><terminal>not</terminal></th><th><terminal>floatnum</terminal></th><th><terminal>intnum</terminal></th><th><terminal>assign</terminal></th><th><terminal>or</terminal></th></tr>
 <tr><th><nonterm>START</nonterm></th>
-<td><nonterm>START</nonterm> &rarr; <nonterm>PROG</nonterm></td>
+<td><nonterm>START</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -197,7 +195,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>START</nonterm> &rarr; <nonterm>PROG</nonterm></td>
+<td><nonterm>START</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -221,9 +219,9 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>START</nonterm> &rarr; <nonterm>PROG</nonterm></td>
+<td><nonterm>START</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
 <td>&nbsp;</td>
-<td><nonterm>START</nonterm> &rarr; <nonterm>PROG</nonterm></td>
+<td><nonterm>START</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -507,14 +505,14 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>ARRAYSIZE2</nonterm> &rarr; <term>rsqbr</term></td>
+<td><nonterm>ARRAYSIZE2</nonterm> &rarr; <term>closesqbr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>ARRAYSIZE2</nonterm> &rarr; <term>intnum</term> <term>rsqbr</term></td>
+<td><nonterm>ARRAYSIZE2</nonterm> &rarr; <term>intnum</term> <term>closesqbr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -563,7 +561,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>ASSIGNOP</nonterm> &rarr; <term>equal</term></td>
+<td><nonterm>ASSIGNOP</nonterm> &rarr; <term>assign</term></td>
 <td>&nbsp;</td>
 </tr>
 <tr><th><nonterm>EXPR</nonterm></th>
@@ -763,7 +761,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FACTOR</nonterm> &rarr; <term>openpar</term> <nonterm>ARITHEXPR</nonterm> <term>rpar</term></td>
+<td><nonterm>FACTOR</nonterm> &rarr; <term>openpar</term> <nonterm>ARITHEXPR</nonterm> <term>closepar</term></td>
 <td><nonterm>FACTOR</nonterm> &rarr; <term>id</term> <nonterm>FACTOR2</nonterm> <nonterm>REPTVARIABLEORFUNCTIONCALL</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -811,7 +809,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>rpar</term></td>
+<td><nonterm>FACTOR2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term></td>
 <td>&nbsp;</td>
 <td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
 <td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
@@ -916,7 +914,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FUNCBODY</nonterm> &rarr; <term>opencurb</term> <nonterm>REPTFUNCBODY1</nonterm> <term>rcurbr</term></td>
+<td><nonterm>FUNCBODY</nonterm> &rarr; <term>opencubr</term> <nonterm>REPTFUNCBODY1</nonterm> <term>closecubr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1087,7 +1085,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FUNCHEAD</nonterm> &rarr; <term>func</term> <term>id</term> <term>openpar</term> <nonterm>FPARAMS</nonterm> <term>rpar</term> <term>arrow</term> <nonterm>RETURNTYPE</nonterm></td>
+<td><nonterm>FUNCHEAD</nonterm> &rarr; <term>func</term> <term>id</term> <term>openpar</term> <nonterm>FPARAMS</nonterm> <term>closepar</term> <term>arrow</term> <nonterm>RETURNTYPE</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1147,7 +1145,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>rpar</term></td>
+<td><nonterm>IDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term></td>
 <td>&nbsp;</td>
 <td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
 <td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
@@ -1229,7 +1227,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IMPLDEF</nonterm> &rarr; <term>impl</term> <term>id</term> <term>opencurb</term> <nonterm>REPTIMPLDEF3</nonterm> <term>rcurbr</term></td>
+<td><nonterm>IMPLDEF</nonterm> &rarr; <term>impl</term> <term>id</term> <term>opencubr</term> <nonterm>REPTIMPLDEF3</nonterm> <term>closecubr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1276,7 +1274,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>INDICE</nonterm> &rarr; <term>opensqbr</term> <nonterm>ARITHEXPR</nonterm> <term>rsqbr</term></td>
+<td><nonterm>INDICE</nonterm> &rarr; <term>opensqbr</term> <nonterm>ARITHEXPR</nonterm> <term>closesqbr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1424,54 +1422,6 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr><th><nonterm>PROG</nonterm></th>
-<td><nonterm>PROG</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><nonterm>PROG</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><nonterm>PROG</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
-<td>&nbsp;</td>
-<td><nonterm>PROG</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1767,7 +1717,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 </tr>
 <tr><th><nonterm>REPTFUNCBODY1</nonterm></th>
-<td>&nbsp;</td>
+<td><nonterm>REPTFUNCBODY1</nonterm> &rarr; &epsilon</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2055,7 +2005,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 </tr>
 <tr><th><nonterm>REPTSTRUCTDECL4</nonterm></th>
-<td>&nbsp;</td>
+<td><nonterm>REPTSTRUCTDECL4</nonterm> &rarr; &epsilon</td>
 <td><nonterm>REPTSTRUCTDECL4</nonterm> &rarr; <nonterm>VISIBILITY</nonterm> <nonterm>MEMBERDECL</nonterm> <nonterm>REPTSTRUCTDECL4</nonterm></td>
 <td><nonterm>REPTSTRUCTDECL4</nonterm> &rarr; <nonterm>VISIBILITY</nonterm> <nonterm>MEMBERDECL</nonterm> <nonterm>REPTSTRUCTDECL4</nonterm></td>
 <td>&nbsp;</td>
@@ -2356,7 +2306,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; <term>opencurb</term> <nonterm>REPTSTATBLOCK1</nonterm> <term>rcurbr</term></td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; <term>opencubr</term> <nonterm>REPTSTATBLOCK1</nonterm> <term>closecubr</term></td>
 <td>&nbsp;</td>
 <td><nonterm>STATBLOCK</nonterm> &rarr; <nonterm>STATEMENT</nonterm></td>
 <td><nonterm>STATBLOCK</nonterm> &rarr; <nonterm>STATEMENT</nonterm></td>
@@ -2406,13 +2356,13 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>return</term> <term>openpar</term> <nonterm>EXPR</nonterm> <term>rpar</term> <term>semi</term></td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>write</term> <term>openpar</term> <nonterm>EXPR</nonterm> <term>rpar</term> <term>semi</term></td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>read</term> <term>openpar</term> <nonterm>VARIABLE</nonterm> <term>rpar</term> <term>semi</term></td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>while</term> <term>openpar</term> <nonterm>RELEXPR</nonterm> <term>rpar</term> <nonterm>STATBLOCK</nonterm> <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>return</term> <term>openpar</term> <nonterm>EXPR</nonterm> <term>closepar</term> <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>write</term> <term>openpar</term> <nonterm>EXPR</nonterm> <term>closepar</term> <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>read</term> <term>openpar</term> <nonterm>VARIABLE</nonterm> <term>closepar</term> <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>while</term> <term>openpar</term> <nonterm>RELEXPR</nonterm> <term>closepar</term> <nonterm>STATBLOCK</nonterm> <term>semi</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>if</term> <term>openpar</term> <nonterm>RELEXPR</nonterm> <term>rpar</term> <term>then</term> <nonterm>STATBLOCK</nonterm> <term>else</term> <nonterm>STATBLOCK</nonterm> <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>if</term> <term>openpar</term> <nonterm>RELEXPR</nonterm> <term>closepar</term> <term>then</term> <nonterm>STATBLOCK</nonterm> <term>else</term> <nonterm>STATBLOCK</nonterm> <term>semi</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2443,7 +2393,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>rpar</term> <nonterm>STATEMENT4</nonterm></td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> <nonterm>STATEMENT4</nonterm></td>
 <td>&nbsp;</td>
 <td><nonterm>STATEMENT2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm> <nonterm>STATEMENT3</nonterm></td>
 <td>&nbsp;</td>
@@ -2597,7 +2547,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STRUCTDECL</nonterm> &rarr; <term>struct</term> <term>id</term> <nonterm>OPTSTRUCTDECL2</nonterm> <term>opencurb</term> <nonterm>REPTSTRUCTDECL4</nonterm> <term>rcurbr</term> <term>semi</term></td>
+<td><nonterm>STRUCTDECL</nonterm> &rarr; <term>struct</term> <term>id</term> <nonterm>OPTSTRUCTDECL2</nonterm> <term>opencubr</term> <nonterm>REPTSTRUCTDECL4</nonterm> <term>closecubr</term> <term>semi</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2923,7 +2873,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><nonterm>VARIABLE2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm> <nonterm>REPTVARIABLE</nonterm></td>
-<td><nonterm>VARIABLE2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>rpar</term> <nonterm>VARIDNEST</nonterm></td>
+<td><nonterm>VARIABLE2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> <nonterm>VARIDNEST</nonterm></td>
 <td>&nbsp;</td>
 <td><nonterm>VARIABLE2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm> <nonterm>REPTVARIABLE</nonterm></td>
 <td>&nbsp;</td>
@@ -3067,7 +3017,7 @@ VISIBILITY &rarr;</td><td> private  .</td></tr><tr><td> </td></tr></table><table
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><nonterm>VARIDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>VARIDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>rpar</term> <nonterm>VARIDNEST</nonterm></td>
+<td><nonterm>VARIDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> <nonterm>VARIDNEST</nonterm></td>
 <td>&nbsp;</td>
 <td><nonterm>VARIDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
 <td>&nbsp;</td>

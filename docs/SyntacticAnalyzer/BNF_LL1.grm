@@ -1,4 +1,4 @@
-<START> ::= <prog> 
+<START> ::= <prog> '$'
 
 <aParams> ::= <expr> <rept-aParams1> 
 <aParams> ::= EPSILON 
