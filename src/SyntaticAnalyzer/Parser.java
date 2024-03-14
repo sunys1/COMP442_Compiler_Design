@@ -21,6 +21,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import LexicalAnalyzer.*;
+import AstGeneration.Node;
+import AstGeneration.SemanticActions;
 
 /**
 *
@@ -41,6 +43,7 @@ public class Parser {
 	private List<String> terminals = new ArrayList<>();
 	private List<String> nonTerminals = new ArrayList<>();
 	private Stack<String> parsingStack = new Stack<>();
+	private Stack<Node> semanticStack = new Stack<>();
 	private Token lookahead = null;
 
 	public Parser(Lexer lexer, PrintWriter derivationWriter, PrintWriter errorWriter) {
@@ -154,7 +157,7 @@ public class Parser {
 					skipErrors();
 					error = true;
 				}
-			}else { // Non-terminal
+			}else if(nonTerminals.contains(top)) { // Non-terminal
 				rule = getRule(top, lookahead.getName());
 				if(rule!= null && !rule.isBlank()) {
 					parsingStack.pop();
@@ -164,7 +167,10 @@ public class Parser {
 					skipErrors();
 					error = true;
 				}
-			}	
+			}else { // Semantic Action
+				callSemanticAction(top, lookahead);
+				parsingStack.pop();
+			}
 		}
 				
 		if(!lookahead.getName().equals(END_OF_STACK) || error) { // Unsuccessful parsing
@@ -247,4 +253,21 @@ public class Parser {
 
         return parsingTable;
     }
+	
+	private void callSemanticAction(String action, Token lookahead) {
+		String actionName = action.toUpperCase().replace("makeNode", "").replace("makeFamily", "");
+		Boolean hasFixedChildren = SemanticActions.actionWithFixedChildren.containsKey(actionName);
+		
+		if(hasFixedChildren) {
+			int numChildren = SemanticActions.actionWithFixedChildren.get(actionName);
+			SemanticActions.makeFamily(semanticStack, actionName, numChildren);
+		}else if(!hasFixedChildren) {
+			SemanticActions.makeFamily(semanticStack, actionName);
+		}else if(actionName.equals("ADDOP") || actionName.equals("MULTOP")) {
+			SemanticActions.makeNodeOp(semanticStack);
+		}else { //make node
+			Node node = SemanticActions.makeNode(actionName);
+			node.setToken(lookahead);
+		}
+	}
 }
