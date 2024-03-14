@@ -1,5 +1,5 @@
 /* sort the array */
-func bubbleSort(arr: integer[], size: integer) -> void 
+func bubbleSort(arr: integer[], size: integer) -> void
 {
   let n: integer;
   let i: integer;

@@ -181,7 +181,7 @@ VISIBILITY &rarr;</td><td> public.</td></tr><tr><td>
 VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table class="parse_table" border="1">
 <tr><td></td><th><terminal>$</terminal></th><th><terminal>private</terminal></th><th><terminal>public</terminal></th><th><terminal>closepar</terminal></th><th><terminal>openpar</terminal></th><th><terminal>id</terminal></th><th><terminal>dot</terminal></th><th><terminal>semi</terminal></th><th><terminal>colon</terminal></th><th><terminal>let</terminal></th><th><terminal>float</terminal></th><th><terminal>integer</terminal></th><th><terminal>closecubr</terminal></th><th><terminal>opencubr</terminal></th><th><terminal>struct</terminal></th><th><terminal>return</terminal></th><th><terminal>write</terminal></th><th><terminal>read</terminal></th><th><terminal>while</terminal></th><th><terminal>else</terminal></th><th><terminal>then</terminal></th><th><terminal>if</terminal></th><th><terminal>minus</terminal></th><th><terminal>plus</terminal></th><th><terminal>void</terminal></th><th><terminal>comma</terminal></th><th><terminal>geq</terminal></th><th><terminal>leq</terminal></th><th><terminal>gt</terminal></th><th><terminal>lt</terminal></th><th><terminal>neq</terminal></th><th><terminal>eq</terminal></th><th><terminal>inherits</terminal></th><th><terminal>and</terminal></th><th><terminal>div</terminal></th><th><terminal>mult</terminal></th><th><terminal>closesqbr</terminal></th><th><terminal>opensqbr</terminal></th><th><terminal>impl</terminal></th><th><terminal>arrow</terminal></th><th><terminal>func</terminal></th><th><terminal>not</terminal></th><th><terminal>floatnum</terminal></th><th><terminal>intnum</terminal></th><th><terminal>assign</terminal></th><th><terminal>or</terminal></th></tr>
 <tr><th><nonterm>START</nonterm></th>
-<td><nonterm>START</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
+<td><nonterm>START</nonterm> &rarr; <nonterm>PROG</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -195,7 +195,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>START</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
+<td><nonterm>START</nonterm> &rarr; <nonterm>PROG</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -219,9 +219,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>START</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
+<td><nonterm>START</nonterm> &rarr; <nonterm>PROG</nonterm></td>
 <td>&nbsp;</td>
-<td><nonterm>START</nonterm> &rarr; <nonterm>REPTPROG0</nonterm></td>
+<td><nonterm>START</nonterm> &rarr; <nonterm>PROG</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -232,9 +232,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>APARAMS</nonterm> &rarr; &epsilon</td>
-<td><nonterm>APARAMS</nonterm> &rarr; <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm></td>
-<td><nonterm>APARAMS</nonterm> &rarr; <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm></td>
+<td><nonterm>APARAMS</nonterm> &rarr; pushNull &epsilon makeFamilyAparams</td>
+<td><nonterm>APARAMS</nonterm> &rarr; pushNull <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm> makeFamilyAparams</td>
+<td><nonterm>APARAMS</nonterm> &rarr; pushNull <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm> makeFamilyAparams</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -251,8 +251,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>APARAMS</nonterm> &rarr; <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm></td>
-<td><nonterm>APARAMS</nonterm> &rarr; <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm></td>
+<td><nonterm>APARAMS</nonterm> &rarr; pushNull <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm> makeFamilyAparams</td>
+<td><nonterm>APARAMS</nonterm> &rarr; pushNull <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm> makeFamilyAparams</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -270,9 +270,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>APARAMS</nonterm> &rarr; <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm></td>
-<td><nonterm>APARAMS</nonterm> &rarr; <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm></td>
-<td><nonterm>APARAMS</nonterm> &rarr; <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm></td>
+<td><nonterm>APARAMS</nonterm> &rarr; pushNull <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm> makeFamilyAparams</td>
+<td><nonterm>APARAMS</nonterm> &rarr; pushNull <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm> makeFamilyAparams</td>
+<td><nonterm>APARAMS</nonterm> &rarr; pushNull <nonterm>EXPR</nonterm> <nonterm>REPTAPARAMS1</nonterm> makeFamilyAparams</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -347,8 +347,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>ADDOP</nonterm> &rarr; <term>minus</term></td>
-<td><nonterm>ADDOP</nonterm> &rarr; <term>plus</term></td>
+<td><nonterm>ADDOP</nonterm> &rarr; <term>minus</term> makeNodeMinus</td>
+<td><nonterm>ADDOP</nonterm> &rarr; <term>plus</term> makeNodePlus</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -370,7 +370,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>ADDOP</nonterm> &rarr; <term>or</term></td>
+<td><nonterm>ADDOP</nonterm> &rarr; <term>or makeNodeOr</term></td>
 </tr>
 <tr><th><nonterm>ARITHEXPR</nonterm></th>
 <td>&nbsp;</td>
@@ -505,14 +505,14 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>ARRAYSIZE2</nonterm> &rarr; <term>closesqbr</term></td>
+<td><nonterm>ARRAYSIZE2</nonterm> &rarr; makeNodeEmptySize <term>closesqbr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>ARRAYSIZE2</nonterm> &rarr; <term>intnum</term> <term>closesqbr</term></td>
+<td><nonterm>ARRAYSIZE2</nonterm> &rarr; <term>intnum</term> makeNodeIntnum <term>closesqbr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -616,15 +616,11 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>EXPR2</nonterm> &rarr; &epsilon</td>
+<td><nonterm>EXPR2</nonterm> &rarr; &epsilon makeFamilyArithExpr </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>EXPR2</nonterm> &rarr; &epsilon</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>EXPR2</nonterm> &rarr; &epsilon makeFamilyArithExpr </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -638,13 +634,17 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>EXPR2</nonterm> &rarr; &epsilon</td>
-<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>EXPR2</nonterm> &rarr; &epsilon makeFamilyArithExpr </td>
+<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>EXPR2</nonterm> &rarr; <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -664,9 +664,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FPARAMS</nonterm> &rarr; &epsilon</td>
+<td><nonterm>FPARAMS</nonterm> &rarr; pushNull &epsilon makeFamilyFParamList</td>
 <td>&nbsp;</td>
-<td><nonterm>FPARAMS</nonterm> &rarr; <term>id</term> <term>colon</term> <nonterm>TYPE</nonterm> <nonterm>REPTFPARAMS3</nonterm> <nonterm>REPTFPARAMS4</nonterm></td>
+<td><nonterm>FPARAMS</nonterm> &rarr; pushNull <term>id</term> makeNodeId <term>colon</term> <nonterm>TYPE</nonterm> pushNull <nonterm>REPTFPARAMS3</nonterm> makeFamilyDimList makeFamilyFParam <nonterm>REPTFPARAMS4</nonterm> makeFamilyFParamList </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -734,7 +734,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FPARAMSTAIL</nonterm> &rarr; <term>comma</term> <term>id</term> <term>colon</term> <nonterm>TYPE</nonterm> <nonterm>REPTFPARAMSTAIL4</nonterm></td>
+<td><nonterm>FPARAMSTAIL</nonterm> &rarr; <term>comma</term> <term>id</term> makeNodeId <term>colon</term> <nonterm>TYPE</nonterm> pushNull <nonterm>REPTFPARAMSTAIL4</nonterm> makeFamilyDimList makeFamilyFParam </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -761,8 +761,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FACTOR</nonterm> &rarr; <term>openpar</term> <nonterm>ARITHEXPR</nonterm> <term>closepar</term></td>
-<td><nonterm>FACTOR</nonterm> &rarr; <term>id</term> <nonterm>FACTOR2</nonterm> <nonterm>REPTVARIABLEORFUNCTIONCALL</nonterm></td>
+<td><nonterm>FACTOR</nonterm> &rarr; <term>openpar</term> <nonterm>ARITHEXPR</nonterm> makeFamilyArithExpr <term>closepar</term></td>
+<td><nonterm>FACTOR</nonterm> &rarr; <term>id</term> makeNodeId <nonterm>FACTOR2</nonterm> <nonterm>REPTVARIABLEORFUNCTIONCALL</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -779,8 +779,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FACTOR</nonterm> &rarr; <nonterm>SIGN</nonterm> <nonterm>FACTOR</nonterm></td>
-<td><nonterm>FACTOR</nonterm> &rarr; <nonterm>SIGN</nonterm> <nonterm>FACTOR</nonterm></td>
+<td><nonterm>FACTOR</nonterm> &rarr; <nonterm>SIGN</nonterm> <nonterm>FACTOR</nonterm> makeNodeSign </td>
+<td><nonterm>FACTOR</nonterm> &rarr; <nonterm>SIGN</nonterm> <nonterm>FACTOR</nonterm> makeNodeSign </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -798,9 +798,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FACTOR</nonterm> &rarr; <term>not</term> <nonterm>FACTOR</nonterm></td>
-<td><nonterm>FACTOR</nonterm> &rarr; <term>floatnum</term></td>
-<td><nonterm>FACTOR</nonterm> &rarr; <term>intnum</term></td>
+<td><nonterm>FACTOR</nonterm> &rarr; <term>not</term> <nonterm>FACTOR</nonterm> makeNodeNot </td>
+<td><nonterm>FACTOR</nonterm> &rarr; <term>floatnum</term> makeNodeFloatnum </td>
+<td><nonterm>FACTOR</nonterm> &rarr; <term>intnum</term> makeNodeIntnum </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -808,13 +808,11 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term></td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> makeFamilyFuncCall </td>
 <td>&nbsp;</td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -827,30 +825,32 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td>&nbsp;</td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td>&nbsp;</td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FACTOR2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>FACTOR2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 </tr>
 <tr><th><nonterm>REPTVARIABLEORFUNCTIONCALL</nonterm></th>
 <td>&nbsp;</td>
@@ -914,7 +914,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FUNCBODY</nonterm> &rarr; <term>opencubr</term> <nonterm>REPTFUNCBODY1</nonterm> <term>closecubr</term></td>
+<td><nonterm>FUNCBODY</nonterm> &rarr; <term>opencubr</term> pushNull <nonterm>REPTFUNCBODY1</nonterm> makeFamilyFuncBody <term>closecubr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1037,7 +1037,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FUNCDEF</nonterm> &rarr; <nonterm>FUNCHEAD</nonterm> <nonterm>FUNCBODY</nonterm></td>
+<td><nonterm>FUNCDEF</nonterm> &rarr; <nonterm>FUNCHEAD</nonterm> <nonterm>FUNCBODY</nonterm> makeFamilyFuncDef </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1085,7 +1085,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>FUNCHEAD</nonterm> &rarr; <term>func</term> <term>id</term> <term>openpar</term> <nonterm>FPARAMS</nonterm> <term>closepar</term> <term>arrow</term> <nonterm>RETURNTYPE</nonterm></td>
+<td><nonterm>FUNCHEAD</nonterm> &rarr; <term>func</term> <term>id</term> makeNodeId <term>openpar</term> <nonterm>FPARAMS</nonterm> <term>closepar</term> <term>arrow</term> <nonterm>RETURNTYPE</nonterm> makeFamilyFuncHead </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1099,7 +1099,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST</nonterm> &rarr; <term>dot</term> <term>id</term> <nonterm>IDNEST2</nonterm></td>
+<td><nonterm>IDNEST</nonterm> &rarr; <term>dot</term> <term>id</term> makeNodeId <nonterm>IDNEST2</nonterm> makeFamilyDot </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1144,11 +1144,11 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td><nonterm>IDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term></td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1163,30 +1163,30 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 </tr>
 <tr><th><nonterm>IMPLDEF</nonterm></th>
 <td>&nbsp;</td>
@@ -1227,7 +1227,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IMPLDEF</nonterm> &rarr; <term>impl</term> <term>id</term> <term>opencubr</term> <nonterm>REPTIMPLDEF3</nonterm> <term>closecubr</term></td>
+<td><nonterm>IMPLDEF</nonterm> &rarr; <term>impl</term> <term>id</term> makeNodeId <term>opencubr</term> pushNull <nonterm>REPTIMPLDEF3</nonterm> makeFamilyFuncDefList makeFamilyImplDef <term>closecubr</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1366,9 +1366,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>MULTOP</nonterm> &rarr; <term>and</term></td>
-<td><nonterm>MULTOP</nonterm> &rarr; <term>div</term></td>
-<td><nonterm>MULTOP</nonterm> &rarr; <term>mult</term></td>
+<td><nonterm>MULTOP</nonterm> &rarr; <term>and makeNodeAnd </term></td>
+<td><nonterm>MULTOP</nonterm> &rarr; <term>div makeNodeDiv </term></td>
+<td><nonterm>MULTOP</nonterm> &rarr; <term>mult makeNodeMult </term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1413,7 +1413,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>OPTSTRUCTDECL2</nonterm> &rarr; <term>inherits</term> <term>id</term> <nonterm>REPTOPTSTRUCTDECL22</nonterm></td>
+<td><nonterm>OPTSTRUCTDECL2</nonterm> &rarr; <term>inherits</term> <term>id</term> makeNodeId <nonterm>REPTOPTSTRUCTDECL22</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1433,8 +1433,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
+<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1451,8 +1451,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
+<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1470,9 +1470,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
-<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm></td>
+<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
+<td><nonterm>RELEXPR</nonterm> &rarr; <nonterm>ARITHEXPR</nonterm> <nonterm>RELOP</nonterm> <nonterm>ARITHEXPR</nonterm> makeFamilyRelExpr </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -1503,12 +1503,12 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>RELOP</nonterm> &rarr; <term>geq</term></td>
-<td><nonterm>RELOP</nonterm> &rarr; <term>leq</term></td>
-<td><nonterm>RELOP</nonterm> &rarr; <term>gt</term></td>
-<td><nonterm>RELOP</nonterm> &rarr; <term>lt</term></td>
-<td><nonterm>RELOP</nonterm> &rarr; <term>neq</term></td>
-<td><nonterm>RELOP</nonterm> &rarr; <term>eq</term></td>
+<td><nonterm>RELOP</nonterm> &rarr; <term>geq</term> makeNodeGeq </td>
+<td><nonterm>RELOP</nonterm> &rarr; <term>leq</term> makeNodeLeq </td>
+<td><nonterm>RELOP</nonterm> &rarr; <term>gt</term> makeNodeGt </td>
+<td><nonterm>RELOP</nonterm> &rarr; <term>lt</term> makeNodeLt </td>
+<td><nonterm>RELOP</nonterm> &rarr; <term>neq</term> makeNodeNeq </td>
+<td><nonterm>RELOP</nonterm> &rarr; <term>eq</term> makeNodeEq </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1886,7 +1886,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>REPTOPTSTRUCTDECL22</nonterm> &rarr; <term>comma</term> <term>id</term> <nonterm>REPTOPTSTRUCTDECL22</nonterm></td>
+<td><nonterm>REPTOPTSTRUCTDECL22</nonterm> &rarr; <term>comma</term> <term>id</term> makeNodeId <nonterm>REPTOPTSTRUCTDECL22</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1902,6 +1902,54 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><th><nonterm>PROG</nonterm></th>
+<td><nonterm>PROG</nonterm> &rarr; pushNull <nonterm>REPTPROG0</nonterm> makeFamilyProg </td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>PROG</nonterm> &rarr; pushNull <nonterm>REPTPROG0</nonterm> makeFamilyProg </td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>PROG</nonterm> &rarr; pushNull <nonterm>REPTPROG0</nonterm> makeFamilyProg </td>
+<td>&nbsp;</td>
+<td><nonterm>PROG</nonterm> &rarr; pushNull <nonterm>REPTPROG0</nonterm> makeFamilyProg </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2125,7 +2173,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>RETURNTYPE</nonterm> &rarr; <term>void</term></td>
+<td><nonterm>RETURNTYPE</nonterm> &rarr; <term>void</term> makeNodeVoid </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2171,8 +2219,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>RIGHTRECARITHEXPR</nonterm> &rarr; <nonterm>ADDOP</nonterm> <nonterm>TERM</nonterm> <nonterm>RIGHTRECARITHEXPR</nonterm></td>
-<td><nonterm>RIGHTRECARITHEXPR</nonterm> &rarr; <nonterm>ADDOP</nonterm> <nonterm>TERM</nonterm> <nonterm>RIGHTRECARITHEXPR</nonterm></td>
+<td><nonterm>RIGHTRECARITHEXPR</nonterm> &rarr; <nonterm>ADDOP</nonterm> <nonterm>TERM</nonterm> <nonterm>RIGHTRECARITHEXPR</nonterm> makeFamilyAddOp </td>
+<td><nonterm>RIGHTRECARITHEXPR</nonterm> &rarr; <nonterm>ADDOP</nonterm> <nonterm>TERM</nonterm> <nonterm>RIGHTRECARITHEXPR</nonterm> makeFamilyAddOp </td>
 <td>&nbsp;</td>
 <td><nonterm>RIGHTRECARITHEXPR</nonterm> &rarr; &epsilon</td>
 <td><nonterm>RIGHTRECARITHEXPR</nonterm> &rarr; &epsilon</td>
@@ -2194,7 +2242,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>RIGHTRECARITHEXPR</nonterm> &rarr; <nonterm>ADDOP</nonterm> <nonterm>TERM</nonterm> <nonterm>RIGHTRECARITHEXPR</nonterm></td>
+<td><nonterm>RIGHTRECARITHEXPR</nonterm> &rarr; <nonterm>ADDOP</nonterm> <nonterm>TERM</nonterm> <nonterm>RIGHTRECARITHEXPR</nonterm> makeFamilyAddOp </td>
 </tr>
 <tr><th><nonterm>RIGHTRECTERM</nonterm></th>
 <td>&nbsp;</td>
@@ -2230,9 +2278,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td><nonterm>RIGHTRECTERM</nonterm> &rarr; &epsilon</td>
 <td><nonterm>RIGHTRECTERM</nonterm> &rarr; &epsilon</td>
 <td>&nbsp;</td>
-<td><nonterm>RIGHTRECTERM</nonterm> &rarr; <nonterm>MULTOP</nonterm> <nonterm>FACTOR</nonterm> <nonterm>RIGHTRECTERM</nonterm></td>
-<td><nonterm>RIGHTRECTERM</nonterm> &rarr; <nonterm>MULTOP</nonterm> <nonterm>FACTOR</nonterm> <nonterm>RIGHTRECTERM</nonterm></td>
-<td><nonterm>RIGHTRECTERM</nonterm> &rarr; <nonterm>MULTOP</nonterm> <nonterm>FACTOR</nonterm> <nonterm>RIGHTRECTERM</nonterm></td>
+<td><nonterm>RIGHTRECTERM</nonterm> &rarr; <nonterm>MULTOP</nonterm> <nonterm>FACTOR</nonterm> <nonterm>RIGHTRECTERM</nonterm> makeFamilyMultOp </td>
+<td><nonterm>RIGHTRECTERM</nonterm> &rarr; <nonterm>MULTOP</nonterm> <nonterm>FACTOR</nonterm> <nonterm>RIGHTRECTERM</nonterm> makeFamilyMultOp </td>
+<td><nonterm>RIGHTRECTERM</nonterm> &rarr; <nonterm>MULTOP</nonterm> <nonterm>FACTOR</nonterm> <nonterm>RIGHTRECTERM</nonterm> makeFamilyMultOp </td>
 <td><nonterm>RIGHTRECTERM</nonterm> &rarr; &epsilon</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2267,8 +2315,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>SIGN</nonterm> &rarr; <term>minus</term></td>
-<td><nonterm>SIGN</nonterm> &rarr; <term>plus</term></td>
+<td><nonterm>SIGN</nonterm> &rarr; <term>minus</term> madeNodeMinus </td>
+<td><nonterm>SIGN</nonterm> &rarr; <term>plus</term> madeNodePlus </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2298,23 +2346,23 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; <nonterm>STATEMENT</nonterm></td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; pushNull <nonterm>STATEMENT</nonterm> makeFamilyStatBlock </td>
 <td>&nbsp;</td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; pushNull &epsilon makeFamilyStatBlock </td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; <term>opencubr</term> pushNull <nonterm>REPTSTATBLOCK1</nonterm> <term>closecubr</term> makeFamilyStatBlock </td>
+<td>&nbsp;</td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; pushNull <nonterm>STATEMENT</nonterm> makeFamilyStatBlock </td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; pushNull <nonterm>STATEMENT</nonterm> makeFamilyStatBlock </td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; pushNull <nonterm>STATEMENT</nonterm> makeFamilyStatBlock </td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; pushNull <nonterm>STATEMENT</nonterm> makeFamilyStatBlock </td>
 <td><nonterm>STATBLOCK</nonterm> &rarr; &epsilon</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; <term>opencubr</term> <nonterm>REPTSTATBLOCK1</nonterm> <term>closecubr</term></td>
-<td>&nbsp;</td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; <nonterm>STATEMENT</nonterm></td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; <nonterm>STATEMENT</nonterm></td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; <nonterm>STATEMENT</nonterm></td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; <nonterm>STATEMENT</nonterm></td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; &epsilon</td>
-<td>&nbsp;</td>
-<td><nonterm>STATBLOCK</nonterm> &rarr; <nonterm>STATEMENT</nonterm></td>
+<td><nonterm>STATBLOCK</nonterm> &rarr; pushNull <nonterm>STATEMENT</nonterm> makeFamilyStatBlock </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2346,7 +2394,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>id</term> <nonterm>STATEMENT2</nonterm></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>id</term> makeNodeId <nonterm>STATEMENT2</nonterm> <term>semi</term> </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2356,13 +2404,13 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>return</term> <term>openpar</term> <nonterm>EXPR</nonterm> <term>closepar</term> <term>semi</term></td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>write</term> <term>openpar</term> <nonterm>EXPR</nonterm> <term>closepar</term> <term>semi</term></td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>read</term> <term>openpar</term> <nonterm>VARIABLE</nonterm> <term>closepar</term> <term>semi</term></td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>while</term> <term>openpar</term> <nonterm>RELEXPR</nonterm> <term>closepar</term> <nonterm>STATBLOCK</nonterm> <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>return</term> <term>openpar</term> <nonterm>EXPR</nonterm> <term>closepar</term> makeFamilyReturnStat makeFamilyStat <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>write</term> <term>openpar</term> <nonterm>EXPR</nonterm> <term>closepar</term> makeFamilyWriteStat makeFamilyStat <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>read</term> <term>openpar</term> <nonterm>VARIABLE</nonterm> <term>closepar</term> makeFamilyReadStat makeFamilyStat <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>while</term> <term>openpar</term> <nonterm>RELEXPR</nonterm> <term>closepar</term> <nonterm>STATBLOCK</nonterm> makeFamilyWhileStat makeFamilyStat <term>semi</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT</nonterm> &rarr; <term>if</term> <term>openpar</term> <nonterm>RELEXPR</nonterm> <term>closepar</term> <term>then</term> <nonterm>STATBLOCK</nonterm> <term>else</term> <nonterm>STATBLOCK</nonterm> <term>semi</term></td>
+<td><nonterm>STATEMENT</nonterm> &rarr; <term>if</term> <term>openpar</term> <nonterm>RELEXPR</nonterm> <term>closepar</term> <term>then</term> <nonterm>STATBLOCK</nonterm> <term>else</term> <nonterm>STATBLOCK</nonterm> makeFamilyIfStat makeFamilyStat <term>semi</term> </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2393,11 +2441,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> <nonterm>STATEMENT4</nonterm></td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> makeFamilyFuncCall <nonterm>STATEMENT4</nonterm></td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm> <nonterm>STATEMENT3</nonterm></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar <nonterm>STATEMENT3</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2426,14 +2472,16 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm> <nonterm>STATEMENT3</nonterm></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar <nonterm>STATEMENT3</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm> <nonterm>STATEMENT3</nonterm></td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar <nonterm>STATEMENT3</nonterm></td>
 <td>&nbsp;</td>
 </tr>
 <tr><th><nonterm>STATEMENT3</nonterm></th>
@@ -2443,7 +2491,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT3</nonterm> &rarr; <term>dot</term> <term>id</term> <nonterm>STATEMENT2</nonterm></td>
+<td><nonterm>STATEMENT3</nonterm> &rarr; <term>dot</term> <term>id</term> makeNodeId <nonterm>STATEMENT2</nonterm> makeFamilyDot </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2481,7 +2529,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT3</nonterm> &rarr; <nonterm>ASSIGNOP</nonterm> <nonterm>EXPR</nonterm> <term>semi</term></td>
+<td><nonterm>STATEMENT3</nonterm> &rarr; <nonterm>ASSIGNOP</nonterm> <nonterm>EXPR</nonterm> makeFamilyAssignStat makeFamilyStat</td>
 <td>&nbsp;</td>
 </tr>
 <tr><th><nonterm>STATEMENT4</nonterm></th>
@@ -2491,8 +2539,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT4</nonterm> &rarr; <term>dot</term> <term>id</term> <nonterm>STATEMENT2</nonterm></td>
-<td><nonterm>STATEMENT4</nonterm> &rarr; <term>semi</term></td>
+<td><nonterm>STATEMENT4</nonterm> &rarr; <term>dot</term> <term>id</term> makeNodeId <nonterm>STATEMENT2</nonterm> makeFamilyDot </td>
+<td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2547,7 +2595,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STRUCTDECL</nonterm> &rarr; <term>struct</term> <term>id</term> <nonterm>OPTSTRUCTDECL2</nonterm> <term>opencubr</term> <nonterm>REPTSTRUCTDECL4</nonterm> <term>closecubr</term> <term>semi</term></td>
+<td><nonterm>STRUCTDECL</nonterm> &rarr; <term>struct</term> <term>id</term> makeNodeId pushNull <nonterm>OPTSTRUCTDECL2</nonterm> makeFamilyInherList <term>opencubr</term> pushNull <nonterm>REPTSTRUCTDECL4</nonterm> makeFamilyMembList <term>closecubr</term> makeFamilyStructDecl <term>semi</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2682,13 +2730,13 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>TYPE</nonterm> &rarr; <term>id</term></td>
+<td><nonterm>TYPE</nonterm> &rarr; <term>id</term> makeNodeId </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>TYPE</nonterm> &rarr; <term>float</term></td>
-<td><nonterm>TYPE</nonterm> &rarr; <term>integer</term></td>
+<td><nonterm>TYPE</nonterm> &rarr; <term>float</term> makeNodeFloat </td>
+<td><nonterm>TYPE</nonterm> &rarr; <term>integer</term> makeNodeInteger </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2734,7 +2782,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>VARDECL</nonterm> &rarr; <term>let</term> <term>id</term> <term>colon</term> <nonterm>TYPE</nonterm> <nonterm>REPTVARDECL4</nonterm> <term>semi</term></td>
+<td><nonterm>VARDECL</nonterm> &rarr; <term>let</term> <term>id</term> makeNodeId <term>colon</term> <nonterm>TYPE</nonterm> pushNull <nonterm>REPTVARDECL4</nonterm> makeFamilyDimList makeFamilyVarDecl <term>semi</term></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2826,7 +2874,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>VARIABLE</nonterm> &rarr; <term>id</term> <nonterm>VARIABLE2</nonterm></td>
+<td><nonterm>VARIABLE</nonterm> &rarr; <term>id</term> makeNodeId <nonterm>VARIABLE2</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2971,7 +3019,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>VARIDNEST</nonterm> &rarr; <term>dot</term> <term>id</term> <nonterm>VARIDNEST2</nonterm></td>
+<td><nonterm>VARIDNEST</nonterm> &rarr; <term>dot</term> <term>id</term> makeNodeId <nonterm>VARIDNEST2</nonterm> makeFamilyDot </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -3016,10 +3064,10 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>VARIDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td><nonterm>VARIDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> <nonterm>VARIDNEST</nonterm></td>
 <td>&nbsp;</td>
-<td><nonterm>VARIDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -3050,7 +3098,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>VARIDNEST2</nonterm> &rarr; <nonterm>REPTIDNEST1</nonterm></td>
+<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -3062,8 +3110,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 </tr>
 <tr><th><nonterm>VISIBILITY</nonterm></th>
 <td>&nbsp;</td>
-<td><nonterm>VISIBILITY</nonterm> &rarr; <term>private</term></td>
-<td><nonterm>VISIBILITY</nonterm> &rarr; <term>public</term></td>
+<td><nonterm>VISIBILITY</nonterm> &rarr; <term>private</term> makeNodePrivate </td>
+<td><nonterm>VISIBILITY</nonterm> &rarr; <term>public</term> makeNodePublic </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>

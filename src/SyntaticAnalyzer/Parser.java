@@ -35,6 +35,8 @@ public class Parser {
 	private Lexer lexer  = null;
 	private PrintWriter errorWriter = null;
 	private PrintWriter derivationWriter = null;
+	private PrintWriter astWriter = null;
+	private PrintWriter dotWriter = null;
 	private Map<String, Set<String>> firstSets = new HashMap<>();
     private Map<String, Set<String>> followSets = new HashMap<>();
 	private Map<String, Map<String, String>> parsingTable = new HashMap<>();
@@ -46,10 +48,12 @@ public class Parser {
 	private Stack<Node> semanticStack = new Stack<>();
 	private Token lookahead = null;
 
-	public Parser(Lexer lexer, PrintWriter derivationWriter, PrintWriter errorWriter) {
+	public Parser(Lexer lexer, PrintWriter derivationWriter, PrintWriter errorWriter, PrintWriter astWriter, PrintWriter dotWriter) {
 		this.lexer = lexer;
 		this.derivationWriter = derivationWriter;
 		this.errorWriter = errorWriter;
+		this.astWriter = astWriter;
+		this.dotWriter = dotWriter;
 		
 		// Initialize the First&Follow sets as well as the parsing table
 		try {
@@ -173,6 +177,9 @@ public class Parser {
 			}
 		}
 				
+		// Print AST Tree structure to the output file
+		SemanticActions.createAstFile(semanticStack.peek(), astWriter);
+		
 		if(!lookahead.getName().equals(END_OF_STACK) || error) { // Unsuccessful parsing
 			return false;
 		}else {
@@ -255,19 +262,27 @@ public class Parser {
     }
 	
 	private void callSemanticAction(String action, Token lookahead) {
-		String actionName = action.toUpperCase().replace("makeNode", "").replace("makeFamily", "");
+		String actionName = action.toUpperCase().replace("MAKENODE", "").replace("MAKEFAMILY", "");
 		Boolean hasFixedChildren = SemanticActions.actionWithFixedChildren.containsKey(actionName);
+		Boolean hasReptChildren = SemanticActions.actionWithReptChildren.contains(actionName);
 		
 		if(hasFixedChildren) {
 			int numChildren = SemanticActions.actionWithFixedChildren.get(actionName);
 			SemanticActions.makeFamily(semanticStack, actionName, numChildren);
-		}else if(!hasFixedChildren) {
+		}else if(hasReptChildren) {
 			SemanticActions.makeFamily(semanticStack, actionName);
 		}else if(actionName.equals("ADDOP") || actionName.equals("MULTOP")) {
 			SemanticActions.makeNodeOp(semanticStack);
-		}else { //make node
+		}else if(actionName.equals("NOT") || actionName.equals("SIGN")) {
+			SemanticActions.makeNodeFactor(semanticStack, actionName, lookahead);
+		}else if(actionName.equals("EMPTYSIZE")) {
+			semanticStack.push(SemanticActions.makeNode("actionName"));
+		}else if(actionName.equals("PUSHNULL")) {
+			semanticStack.push(null);
+		}else{
 			Node node = SemanticActions.makeNode(actionName);
 			node.setToken(lookahead);
+			semanticStack.push(node);
 		}
 	}
 }

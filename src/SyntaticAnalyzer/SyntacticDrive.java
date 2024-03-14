@@ -46,9 +46,11 @@ public class SyntacticDrive {
 			PrintWriter tokenErrorWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName.split("[.]")[0] + ".outlexerrors"));
 			PrintWriter derivationWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName.split("[.]")[0] + ".outderivation"));
 			PrintWriter errorWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName.split("[.]")[0] + ".outsyntaxerrors"));
+			PrintWriter astWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName.split("[.]")[0] + ".ast.outast"));
+			PrintWriter dotWriter = new PrintWriter(new FileOutputStream(DEFAULT_OUTPUT + fileName.split("[.]")[0] + ".dot.outast"));
 			
 			Lexer lexer = new Lexer(fileScanner, tokenWriter, tokenErrorWriter);
-            Parser parser = new Parser(lexer, derivationWriter, errorWriter);
+            Parser parser = new Parser(lexer, derivationWriter, errorWriter, astWriter, dotWriter);
             parser.parse();
             
             fileScanner.close();
@@ -56,6 +58,8 @@ public class SyntacticDrive {
             tokenErrorWriter.close();
     		derivationWriter.close();
     		errorWriter.close();
+    		astWriter.close();
+    		dotWriter.close();
 		}else {
 			System.out.println("Unable to read file: " + file.getName());
 		}

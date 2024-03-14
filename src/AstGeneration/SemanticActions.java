@@ -2,7 +2,11 @@ package AstGeneration;
 
 import LexicalAnalyzer.Token;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class SemanticActions {
@@ -29,22 +33,27 @@ public class SemanticActions {
 		} 
 	};
 	
+	public static final ArrayList<String> actionWithReptChildren = new ArrayList<>() {
+		{
+			add("APARAMS");
+			add("DIMLIST");
+			add("FPARAMLIST");
+			add("INDEXLIST");
+			add("FUNCBODY");
+			add("FUNCDEFLIST");
+			add("PROG");
+			add("STATBLOCK");
+			add("INHERLIST");
+			add("MEMBLIST");
+		} 
+	};
+		
 	public static Node makeNode() {
 		return new Node();
 	}
 	
-	public static Node makeNode(int val) {
-		Node node = new Node();
-		node.setName("INTNUM");
-		node.setValue(val);
-		
-		return node;
-	}
-	
 	public static Node makeNode(String name) {
-		Node node = new Node();
-		node.setName(name);
-		
+		Node node = new Node(name);
 		return node;
 	}
 	
@@ -57,8 +66,15 @@ public class SemanticActions {
         Node opNode = makeNode(op.getName());
         opNode.setToken(op.getToken());
         opNode.adoptChild(child1.makeSiblings(child2));
-
         semanticStack.push(opNode);
+	}
+	
+	public static void makeNodeFactor(Stack<Node> semanticStack, String name, Token token) {
+		Node factor = semanticStack.pop();
+        Node parentNode = makeNode(name);
+        parentNode.setToken(token);
+        parentNode.adoptChild(factor);
+        semanticStack.push(parentNode);
 	}
 	
 	// make family for nodes having a list of children
@@ -66,17 +82,22 @@ public class SemanticActions {
         Node familyNode = makeNode(name);
         Node leftMostChild = null;
         
-        if(semanticStack.peek() != null) {
+        if(!semanticStack.isEmpty() && semanticStack.peek() != null) {
         	leftMostChild = semanticStack.pop();
             familyNode.adoptChild(leftMostChild);
+            
+            // Pop until null
+            while (!semanticStack.isEmpty() && semanticStack.peek() != null) {
+            	leftMostChild.makeSiblings(semanticStack.pop());
+            }
+        	
+        	if(!semanticStack.isEmpty() && semanticStack.peek() == null && semanticStack.size() > 1) {
+        		semanticStack.pop();
+        	}
+        }else if(!semanticStack.isEmpty() && semanticStack.peek() == null && semanticStack.size() > 1) {
+    		semanticStack.pop();
         }
-        
-        // Pop until null
-        while (semanticStack.peek() != null) {
-        	leftMostChild.makeSiblings(semanticStack.pop());
-        }
-
-        semanticStack.pop(); // Pop null
+       
         semanticStack.push(familyNode);
     }
 	
@@ -88,10 +109,34 @@ public class SemanticActions {
         numChildren--;
         
         while (numChildren > 0) {
-        	leftMostChild.makeSiblings(semanticStack.pop());
+        	if(semanticStack.peek() != null) {
+        		leftMostChild.makeSiblings(semanticStack.pop());
+        	}else {
+        		semanticStack.pop();
+        	}	
         	numChildren--;
         }
         
         semanticStack.push(familyNode);
     }
+	
+	// Create ast.outast file
+	private static void traverseAstTree(PrintWriter pw, Node root, String indent) {
+		if (root == null) {
+	        return;
+	    }
+		
+		pw.println(indent + root.getName());
+		pw.flush();
+
+	    // DFS Tree Traversal
+	    // Find the deepest level
+	    traverseAstTree(pw, root.getLeftMostChild(), indent + "| ");
+	    // Recursively traverse the right siblings
+	    traverseAstTree(pw, root.getRightSibling(), indent);
+	}
+	
+	public static void createAstFile(Node root, PrintWriter pw) {
+		traverseAstTree(pw, root, "");
+	}
 }

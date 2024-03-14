@@ -1,0 +1,313 @@
+PROG
+| FUNCDEF
+| | FUNCBODY
+| | | FUNCCALL
+| | | | APARAMS
+| | | | | INTNUM
+| | | | | VAR
+| | | | | | INDEXLIST
+| | | | | | ID
+| | | | ID
+| | | FUNCCALL
+| | | | APARAMS
+| | | | | INTNUM
+| | | | | VAR
+| | | | | | INDEXLIST
+| | | | | | ID
+| | | | ID
+| | | FUNCCALL
+| | | | APARAMS
+| | | | | INTNUM
+| | | | | VAR
+| | | | | | INDEXLIST
+| | | | | | ID
+| | | | ID
+| | | STAT
+| | | ASSIGNSTAT
+| | | | INTNUM
+| | | | VAR
+| | | | | INDEXLIST
+| | | | | | INTNUM
+| | | | | ID
+| | | STAT
+| | | ASSIGNSTAT
+| | | | INTNUM
+| | | | VAR
+| | | | | INDEXLIST
+| | | | | | INTNUM
+| | | | | ID
+| | | STAT
+| | | ASSIGNSTAT
+| | | | INTNUM
+| | | | VAR
+| | | | | INDEXLIST
+| | | | | | INTNUM
+| | | | | ID
+| | | STAT
+| | | ASSIGNSTAT
+| | | | INTNUM
+| | | | VAR
+| | | | | INDEXLIST
+| | | | | | INTNUM
+| | | | | ID
+| | | STAT
+| | | ASSIGNSTAT
+| | | | INTNUM
+| | | | VAR
+| | | | | INDEXLIST
+| | | | | | INTNUM
+| | | | | ID
+| | | STAT
+| | | ASSIGNSTAT
+| | | | INTNUM
+| | | | VAR
+| | | | | INDEXLIST
+| | | | | | INTNUM
+| | | | | ID
+| | | STAT
+| | | ASSIGNSTAT
+| | | | INTNUM
+| | | | VAR
+| | | | | INDEXLIST
+| | | | | | INTNUM
+| | | | | ID
+| | | VARDECL
+| | | | DIMLIST
+| | | | | INTNUM
+| | | | INTEGER
+| | | | ID
+| | FUNCHEAD
+| | | VOID
+| | | ID
+| | | FUNCDEF
+| | | | FUNCBODY
+| | | | | STAT
+| | | | | WHILESTAT
+| | | | | | STATBLOCK
+| | | | | | | STAT
+| | | | | | | ASSIGNSTAT
+| | | | | | | | PLUS
+| | | | | | | | | INTNUM
+| | | | | | | | | VAR
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | | ID
+| | | | | | | | VAR
+| | | | | | | | | INDEXLIST
+| | | | | | | | | ID
+| | | | | | | STAT
+| | | | | | | WRITESTAT
+| | | | | | | | VAR
+| | | | | | | | | INDEXLIST
+| | | | | | | | | | VAR
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | ID
+| | | | | | | | | ID
+| | | | | | RELEXPR
+| | | | | | | VAR
+| | | | | | | | INDEXLIST
+| | | | | | | | ID
+| | | | | | | LT
+| | | | | | | VAR
+| | | | | | | | INDEXLIST
+| | | | | | | | ID
+| | | | | STAT
+| | | | | ASSIGNSTAT
+| | | | | | INTNUM
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | STAT
+| | | | | ASSIGNSTAT
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | VARDECL
+| | | | | | DIMLIST
+| | | | | | INTEGER
+| | | | | | ID
+| | | | | VARDECL
+| | | | | | DIMLIST
+| | | | | | INTEGER
+| | | | | | ID
+| | | | FUNCHEAD
+| | | | | VOID
+| | | | | FPARAMLIST
+| | | | | | FPARAM
+| | | | | | | DIMLIST
+| | | | | | | INTEGER
+| | | | | | | ID
+| | | | | | FPARAM
+| | | | | | | DIMLIST
+| | | | | | | | actionName
+| | | | | | | INTEGER
+| | | | | | | ID
+| | | | | ID
+| FUNCDEF
+| | FUNCBODY
+| | | STAT
+| | | WHILESTAT
+| | | | STATBLOCK
+| | | | | STAT
+| | | | | ASSIGNSTAT
+| | | | | | PLUS
+| | | | | | | INTNUM
+| | | | | | | VAR
+| | | | | | | | INDEXLIST
+| | | | | | | | ID
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | STAT
+| | | | | WHILESTAT
+| | | | | | STATBLOCK
+| | | | | | | STAT
+| | | | | | | ASSIGNSTAT
+| | | | | | | | PLUS
+| | | | | | | | | INTNUM
+| | | | | | | | | VAR
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | | ID
+| | | | | | | | VAR
+| | | | | | | | | INDEXLIST
+| | | | | | | | | ID
+| | | | | | | STAT
+| | | | | | | IFSTAT
+| | | | | | | | STATBLOCK
+| | | | | | | | | STAT
+| | | | | | | | | ASSIGNSTAT
+| | | | | | | | | | VAR
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | ID
+| | | | | | | | | | VAR
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | PLUS
+| | | | | | | | | | | | | INTNUM
+| | | | | | | | | | | | | VAR
+| | | | | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | | | ID
+| | | | | | | | | | | ID
+| | | | | | | | | STAT
+| | | | | | | | | ASSIGNSTAT
+| | | | | | | | | | VAR
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | PLUS
+| | | | | | | | | | | | | INTNUM
+| | | | | | | | | | | | | VAR
+| | | | | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | | | ID
+| | | | | | | | | | | ID
+| | | | | | | | | | VAR
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | VAR
+| | | | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | | ID
+| | | | | | | | | | | ID
+| | | | | | | | | STAT
+| | | | | | | | | ASSIGNSTAT
+| | | | | | | | | | VAR
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | VAR
+| | | | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | | ID
+| | | | | | | | | | | ID
+| | | | | | | | | | VAR
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | ID
+| | | | | | | | RELEXPR
+| | | | | | | | | VAR
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | | | PLUS
+| | | | | | | | | | | | INTNUM
+| | | | | | | | | | | | VAR
+| | | | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | | ID
+| | | | | | | | | | ID
+| | | | | | | | | GT
+| | | | | | | | | VAR
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | | | VAR
+| | | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | | ID
+| | | | | | | | | | ID
+| | | | | | | RELEXPR
+| | | | | | | | MINUS
+| | | | | | | | | MINUS
+| | | | | | | | | | INTNUM
+| | | | | | | | | | VAR
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | ID
+| | | | | | | | | VAR
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | | ID
+| | | | | | | | LT
+| | | | | | | | VAR
+| | | | | | | | | INDEXLIST
+| | | | | | | | | ID
+| | | | | | RELEXPR
+| | | | | | | MINUS
+| | | | | | | | INTNUM
+| | | | | | | | VAR
+| | | | | | | | | INDEXLIST
+| | | | | | | | | ID
+| | | | | | | LT
+| | | | | | | VAR
+| | | | | | | | INDEXLIST
+| | | | | | | | ID
+| | | | | STAT
+| | | | | ASSIGNSTAT
+| | | | | | INTNUM
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | STAT
+| | | | | ASSIGNSTAT
+| | | | | | INTNUM
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | STAT
+| | | | | ASSIGNSTAT
+| | | | | | INTNUM
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | STAT
+| | | | | ASSIGNSTAT
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | | VAR
+| | | | | | | INDEXLIST
+| | | | | | | ID
+| | | | | VARDECL
+| | | | | | DIMLIST
+| | | | | | INTEGER
+| | | | | | ID
+| | | | | VARDECL
+| | | | | | DIMLIST
+| | | | | | INTEGER
+| | | | | | ID
+| | | | | VARDECL
+| | | | | | DIMLIST
+| | | | | | INTEGER
+| | | | | | ID
+| | | | | VARDECL
+| | | | | | DIMLIST
+| | | | | | INTEGER
+| | | | | | ID
+| | | | FUNCHEAD
+| | | | | VOID
+| | | | | FPARAMLIST
+| | | | | | FPARAM
+| | | | | | | DIMLIST
+| | | | | | | INTEGER
+| | | | | | | ID
+| | | | | | FPARAM
+| | | | | | | DIMLIST
+| | | | | | | | actionName
+| | | | | | | INTEGER
+| | | | | | | ID
+| | | | | ID
