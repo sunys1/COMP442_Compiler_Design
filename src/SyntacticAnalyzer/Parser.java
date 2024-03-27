@@ -1,4 +1,4 @@
-package SyntaticAnalyzer;
+package SyntacticAnalyzer;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -139,6 +139,10 @@ public class Parser {
 		}
 	}
 	
+	public Node getASTRoot() {
+		return this.semanticStack.peek();
+	}
+	
 	public boolean parse() {
 		boolean error = false;
 		String rule = "", top="";
@@ -150,6 +154,7 @@ public class Parser {
 		
 		while(!parsingStack.peek().equals(END_OF_STACK)) {
 			top = parsingStack.peek();
+
 			if(terminals.contains(top)) { // Terminal
 				if(top.equals(lookahead.getName())) {
 					parsingStack.pop();
@@ -266,11 +271,10 @@ public class Parser {
 		Boolean hasFixedChildren = SemanticActions.actionWithFixedChildren.containsKey(actionName);
 		Boolean hasReptChildren = SemanticActions.actionWithReptChildren.contains(actionName);
 		
-		if(hasFixedChildren) {
-			int numChildren = SemanticActions.actionWithFixedChildren.get(actionName);
-			SemanticActions.makeFamily(semanticStack, actionName, numChildren);
-		}else if(hasReptChildren) {
-			SemanticActions.makeFamily(semanticStack, actionName);
+		if(actionName.equals("DOTOP")) { // not the real dot operator
+			// a temporary node just for checking if a dot was actually consumed
+			Node node = SemanticActions.makeNode(actionName);
+			semanticStack.push(node);
 		}else if(actionName.equals("ADDOP") || actionName.equals("MULTOP")) {
 			SemanticActions.makeNodeOp(semanticStack);
 		}else if(actionName.equals("NOT") || actionName.equals("SIGN")) {
@@ -279,6 +283,11 @@ public class Parser {
 			semanticStack.push(SemanticActions.makeNode("actionName"));
 		}else if(actionName.equals("PUSHNULL")) {
 			semanticStack.push(null);
+		}else if(hasFixedChildren) {
+			int numChildren = SemanticActions.actionWithFixedChildren.get(actionName);
+			SemanticActions.makeFamily(semanticStack, actionName, numChildren);
+		}else if(hasReptChildren) {
+			SemanticActions.makeFamily(semanticStack, actionName);
 		}else{
 			Node node = SemanticActions.makeNode(actionName);
 			node.setToken(lookahead);

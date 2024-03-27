@@ -1,0 +1,22 @@
+PROG
+| FUNCDEF
+| | FUNCHEAD
+| | | ID
+| | | VOID
+| | FUNCBODY
+| | | VARDECL
+| | | | ID
+| | | | ID
+| | | | DIMLIST
+| | | STAT
+| | | | ASSIGNSTAT
+| | | | | DOT
+| | | | | | VAR
+| | | | | | | ID
+| | | | | | | INDEXLIST
+| | | | | | VAR
+| | | | | | | ID
+| | | | | | | INDEXLIST
+| | | | | VAR
+| | | | | | ID
+| | | | | | INDEXLIST

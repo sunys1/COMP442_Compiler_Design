@@ -1,4 +1,4 @@
-package SyntaticAnalyzer;
+package SyntacticAnalyzer;
 
 import java.io.File;
 import java.io.FileInputStream;

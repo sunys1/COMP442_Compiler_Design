@@ -1,0 +1,27 @@
+PROG
+| FUNCDEF
+| | FUNCHEAD
+| | | ID
+| | | FPARAMLIST
+| | | | FPARAM
+| | | | | ID
+| | | | | INTEGER
+| | | | | DIMLIST
+| | | | | | actionName
+| | | | FPARAM
+| | | | | ID
+| | | | | INTEGER
+| | | | | DIMLIST
+| | | VOID
+| | FUNCBODY
+| | | STAT
+| | | | ASSIGNSTAT
+| | | | | DOT
+| | | | | | VAR
+| | | | | | | ID
+| | | | | | | INDEXLIST
+| | | | | | | | INTNUM
+| | | | | | VAR
+| | | | | | | ID
+| | | | | | | INDEXLIST
+| | | | | INTNUM

@@ -1,0 +1,3 @@
+func a ( de : integer [], b : integer ) -> void {
+    x[3].a = 4;
+}

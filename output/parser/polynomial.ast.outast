@@ -1,417 +1,420 @@
 PROG
-| FUNCDEF
-| | FUNCBODY
-| | | STAT
-| | | WHILESTAT
-| | | | STATBLOCK
-| | | | | STAT
-| | | | | WRITESTAT
-| | | | | | DOT
-| | | | | | | APARAMS
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | | ID
-| | | | | VAR
-| | | | | | INDEXLIST
+| STRUCTDECL
+| | ID
+| | INHERLIST
+| | MEMBLIST
+| | | PUBLIC
+| | | FUNCHEAD
+| | | | ID
+| | | | FPARAMLIST
+| | | | | FPARAM
 | | | | | | ID
-| | | | | STAT
-| | | | | WRITESTAT
-| | | | | | DOT
-| | | | | | | APARAMS
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | | ID
-| | | | | VAR
-| | | | | | INDEXLIST
-| | | | | | ID
-| | | | | STAT
-| | | | | WRITESTAT
-| | | | | | VAR
-| | | | | | | INDEXLIST
-| | | | | | | ID
-| | | | RELEXPR
-| | | | | INTNUM
-| | | | | LEQ
-| | | | | VAR
-| | | | | | INDEXLIST
-| | | | | | ID
-| | | STAT
-| | | ASSIGNSTAT
-| | | | INTNUM
-| | | | VAR
-| | | | | INDEXLIST
-| | | | | ID
-| | | STAT
-| | | ASSIGNSTAT
-| | | | DOT
-| | | | | APARAMS
-| | | | | | FLOATNUM
-| | | | | | FLOATNUM
-| | | | | | SIGN
-| | | | | | | FLOATNUM
-| | | | | | MADENODEMINUS
-| | | | | ID
-| | | | VAR
-| | | | | INDEXLIST
-| | | | | ID
-| | | VAR
-| | | | INDEXLIST
-| | | | ID
-| | | STAT
-| | | ASSIGNSTAT
-| | | | DOT
-| | | | | APARAMS
-| | | | | | FLOATNUM
-| | | | | | INTNUM
-| | | | | ID
-| | | | VAR
-| | | | | INDEXLIST
-| | | | | ID
-| | | VAR
-| | | | INDEXLIST
-| | | | ID
-| | | VARDECL
-| | | | DIMLIST
-| | | | INTEGER
-| | | | ID
-| | | VARDECL
-| | | | DIMLIST
-| | | | ID
-| | | | ID
-| | | VARDECL
-| | | | DIMLIST
-| | | | ID
-| | | | ID
-| | FUNCHEAD
-| | | VOID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | FLOAT
+| STRUCTDECL
+| | ID
+| | INHERLIST
 | | | ID
+| | MEMBLIST
+| | | PRIVATE
+| | | VARDECL
+| | | | ID
+| | | | FLOAT
+| | | | DIMLIST
+| | | PRIVATE
+| | | VARDECL
+| | | | ID
+| | | | FLOAT
+| | | | DIMLIST
+| | | PUBLIC
+| | | FUNCHEAD
+| | | | ID
+| | | | FPARAMLIST
+| | | | | FPARAM
+| | | | | | ID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | | FPARAM
+| | | | | | ID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | ID
+| | | PUBLIC
+| | | FUNCHEAD
+| | | | ID
+| | | | FPARAMLIST
+| | | | | FPARAM
+| | | | | | ID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | FLOAT
+| STRUCTDECL
+| | ID
+| | INHERLIST
+| | | ID
+| | MEMBLIST
+| | | PRIVATE
+| | | VARDECL
+| | | | ID
+| | | | FLOAT
+| | | | DIMLIST
+| | | PRIVATE
+| | | VARDECL
+| | | | ID
+| | | | FLOAT
+| | | | DIMLIST
+| | | PRIVATE
+| | | VARDECL
+| | | | ID
+| | | | FLOAT
+| | | | DIMLIST
+| | | PUBLIC
+| | | FUNCHEAD
+| | | | ID
+| | | | FPARAMLIST
+| | | | | FPARAM
+| | | | | | ID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | | FPARAM
+| | | | | | ID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | | FPARAM
+| | | | | | ID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | ID
+| | | PUBLIC
+| | | FUNCHEAD
+| | | | ID
+| | | | FPARAMLIST
+| | | | | FPARAM
+| | | | | | ID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | FLOAT
+| IMPLDEF
+| | ID
+| | FUNCDEFLIST
+| | | FUNCDEF
+| | | | FUNCHEAD
+| | | | | ID
+| | | | | FPARAMLIST
+| | | | | | FPARAM
+| | | | | | | ID
+| | | | | | | FLOAT
+| | | | | | | DIMLIST
+| | | | | FLOAT
+| | | | FUNCBODY
+| | | | | STAT
+| | | | | | RETURNSTAT
+| | | | | | | INTNUM
+| IMPLDEF
+| | ID
+| | FUNCDEFLIST
+| | | FUNCDEF
+| | | | FUNCHEAD
+| | | | | ID
+| | | | | FPARAMLIST
+| | | | | | FPARAM
+| | | | | | | ID
+| | | | | | | FLOAT
+| | | | | | | DIMLIST
+| | | | | FLOAT
+| | | | FUNCBODY
+| | | | | VARDECL
+| | | | | | ID
+| | | | | | FLOAT
+| | | | | | DIMLIST
+| | | | | STAT
+| | | | | | ASSIGNSTAT
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| | | | | STAT
+| | | | | | ASSIGNSTAT
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| | | | | | | PLUS
+| | | | | | | | MULT
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | STAT
+| | | | | | ASSIGNSTAT
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| | | | | | | PLUS
+| | | | | | | | MULT
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | STAT
+| | | | | | RETURNSTAT
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| | | FUNCDEF
+| | | | FUNCHEAD
+| | | | | ID
+| | | | | FPARAMLIST
+| | | | | | FPARAM
+| | | | | | | ID
+| | | | | | | FLOAT
+| | | | | | | DIMLIST
+| | | | | | FPARAM
+| | | | | | | ID
+| | | | | | | FLOAT
+| | | | | | | DIMLIST
+| | | | | | FPARAM
+| | | | | | | ID
+| | | | | | | FLOAT
+| | | | | | | DIMLIST
+| | | | | ID
+| | | | FUNCBODY
+| | | | | VARDECL
+| | | | | | ID
+| | | | | | ID
+| | | | | | DIMLIST
+| | | | | STAT
+| | | | | | ASSIGNSTAT
+| | | | | | | DOT
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| | | | | STAT
+| | | | | | ASSIGNSTAT
+| | | | | | | DOT
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| | | | | STAT
+| | | | | | ASSIGNSTAT
+| | | | | | | DOT
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| | | | | STAT
+| | | | | | RETURNSTAT
+| | | | | | | VAR
+| | | | | | | | ID
+| | | | | | | | INDEXLIST
+| FUNCDEF
+| | FUNCHEAD
 | | | IMPLDEF
+| | | | ID
 | | | | FUNCDEFLIST
 | | | | | FUNCDEF
-| | | | | | FUNCBODY
-| | | | | | | STAT
-| | | | | | | RETURNSTAT
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | | STAT
-| | | | | | | ASSIGNSTAT
-| | | | | | | | PLUS
-| | | | | | | | | VAR
-| | | | | | | | | | INDEXLIST
-| | | | | | | | | | ID
-| | | | | | | | | MULT
-| | | | | | | | | | VAR
-| | | | | | | | | | | INDEXLIST
-| | | | | | | | | | | ID
-| | | | | | | | | | VAR
-| | | | | | | | | | | INDEXLIST
-| | | | | | | | | | | ID
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | | STAT
-| | | | | | | ASSIGNSTAT
-| | | | | | | | FLOATNUM
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | | VARDECL
-| | | | | | | | DIMLIST
-| | | | | | | | FLOAT
-| | | | | | | | ID
 | | | | | | FUNCHEAD
-| | | | | | | FLOAT
+| | | | | | | ID
 | | | | | | | FPARAMLIST
 | | | | | | | | FPARAM
-| | | | | | | | | DIMLIST
-| | | | | | | | | FLOAT
 | | | | | | | | | ID
+| | | | | | | | | FLOAT
+| | | | | | | | | DIMLIST
+| | | | | | | | FPARAM
+| | | | | | | | | ID
+| | | | | | | | | FLOAT
+| | | | | | | | | DIMLIST
 | | | | | | | ID
+| | | | | | FUNCBODY
+| | | | | | | VARDECL
+| | | | | | | | ID
+| | | | | | | | ID
+| | | | | | | | DIMLIST
+| | | | | | | STAT
+| | | | | | | | ASSIGNSTAT
+| | | | | | | | | DOT
+| | | | | | | | | | VAR
+| | | | | | | | | | | ID
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | VAR
+| | | | | | | | | | | ID
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | STAT
+| | | | | | | | ASSIGNSTAT
+| | | | | | | | | DOT
+| | | | | | | | | | VAR
+| | | | | | | | | | | ID
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | | VAR
+| | | | | | | | | | | ID
+| | | | | | | | | | | INDEXLIST
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | STAT
+| | | | | | | | RETURNSTAT
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
 | | | | | FUNCDEF
-| | | | | | FUNCBODY
-| | | | | | | STAT
-| | | | | | | RETURNSTAT
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | | DOT
-| | | | | | | | STAT
-| | | | | | | | ASSIGNSTAT
-| | | | | | | | | VAR
-| | | | | | | | | | INDEXLIST
-| | | | | | | | | | ID
-| | | | | | | | | VAR
-| | | | | | | | | | INDEXLIST
-| | | | | | | | | | ID
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
-| | | | | | | DOT
-| | | | | | | | STAT
-| | | | | | | | ASSIGNSTAT
-| | | | | | | | | VAR
-| | | | | | | | | | INDEXLIST
-| | | | | | | | | | ID
-| | | | | | | | | VAR
-| | | | | | | | | | INDEXLIST
-| | | | | | | | | | ID
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
-| | | | | | | VARDECL
-| | | | | | | | DIMLIST
-| | | | | | | | ID
-| | | | | | | | ID
 | | | | | | FUNCHEAD
 | | | | | | | ID
 | | | | | | | FPARAMLIST
 | | | | | | | | FPARAM
-| | | | | | | | | DIMLIST
-| | | | | | | | | FLOAT
 | | | | | | | | | ID
-| | | | | | | | FPARAM
-| | | | | | | | | DIMLIST
 | | | | | | | | | FLOAT
-| | | | | | | | | ID
-| | | | | | | ID
+| | | | | | | | | DIMLIST
+| | | | | | | FLOAT
+| | | | | | FUNCBODY
+| | | | | | | VARDECL
+| | | | | | | | ID
+| | | | | | | | FLOAT
+| | | | | | | | DIMLIST
+| | | | | | | STAT
+| | | | | | | | ASSIGNSTAT
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | FLOATNUM
+| | | | | | | STAT
+| | | | | | | | ASSIGNSTAT
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | PLUS
+| | | | | | | | | | MULT
+| | | | | | | | | | | VAR
+| | | | | | | | | | | | ID
+| | | | | | | | | | | | INDEXLIST
+| | | | | | | | | | | VAR
+| | | | | | | | | | | | ID
+| | | | | | | | | | | | INDEXLIST
+| | | | | | | | | | VAR
+| | | | | | | | | | | ID
+| | | | | | | | | | | INDEXLIST
+| | | | | | | STAT
+| | | | | | | | RETURNSTAT
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | ID
+| | | VOID
+| | FUNCBODY
+| | | VARDECL
 | | | | ID
-| IMPLDEF
-| | FUNCDEFLIST
-| | | FUNCDEF
-| | | | FUNCBODY
-| | | | | STAT
-| | | | | RETURNSTAT
-| | | | | | VAR
-| | | | | | | INDEXLIST
-| | | | | | | ID
-| | | | | DOT
-| | | | | | STAT
-| | | | | | ASSIGNSTAT
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
+| | | | ID
+| | | | DIMLIST
+| | | VARDECL
+| | | | ID
+| | | | ID
+| | | | DIMLIST
+| | | VARDECL
+| | | | ID
+| | | | INTEGER
+| | | | DIMLIST
+| | | STAT
+| | | | ASSIGNSTAT
 | | | | | VAR
-| | | | | | INDEXLIST
 | | | | | | ID
+| | | | | | INDEXLIST
 | | | | | DOT
-| | | | | | STAT
-| | | | | | ASSIGNSTAT
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
+| | | | | | VAR
+| | | | | | | ID
+| | | | | | | INDEXLIST
+| | | | | | FUNCCALL
+| | | | | | | ID
+| | | | | | | APARAMS
+| | | | | | | | INTNUM
+| | | | | | | | FLOATNUM
+| | | STAT
+| | | | ASSIGNSTAT
 | | | | | VAR
-| | | | | | INDEXLIST
 | | | | | | ID
+| | | | | | INDEXLIST
 | | | | | DOT
-| | | | | | STAT
-| | | | | | ASSIGNSTAT
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
+| | | | | | VAR
+| | | | | | | ID
+| | | | | | | INDEXLIST
+| | | | | | FUNCCALL
+| | | | | | | ID
+| | | | | | | APARAMS
+| | | | | | | | SIGN
+| | | | | | | | | FLOATNUM
+| | | | | | | | FLOATNUM
+| | | | | | | | FLOATNUM
+| | | STAT
+| | | | ASSIGNSTAT
 | | | | | VAR
+| | | | | | ID
 | | | | | | INDEXLIST
-| | | | | | ID
-| | | | | VARDECL
-| | | | | | DIMLIST
-| | | | | | ID
-| | | | | | ID
-| | | | FUNCHEAD
-| | | | | ID
-| | | | | FPARAMLIST
-| | | | | | FPARAM
-| | | | | | | DIMLIST
-| | | | | | | FLOAT
-| | | | | | | ID
-| | | | | | FPARAM
-| | | | | | | DIMLIST
-| | | | | | | FLOAT
-| | | | | | | ID
-| | | | | | FPARAM
-| | | | | | | DIMLIST
-| | | | | | | FLOAT
-| | | | | | | ID
-| | | | | ID
-| | | FUNCDEF
-| | | | FUNCBODY
-| | | | | STAT
-| | | | | RETURNSTAT
+| | | | | INTNUM
+| | | STAT
+| | | | WHILESTAT
+| | | | | RELEXPR
 | | | | | | VAR
+| | | | | | | ID
 | | | | | | | INDEXLIST
-| | | | | | | ID
-| | | | | STAT
-| | | | | ASSIGNSTAT
-| | | | | | PLUS
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
-| | | | | | | MULT
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | VAR
-| | | | | | | INDEXLIST
-| | | | | | | ID
-| | | | | STAT
-| | | | | ASSIGNSTAT
-| | | | | | PLUS
-| | | | | | | VAR
-| | | | | | | | INDEXLIST
-| | | | | | | | ID
-| | | | | | | MULT
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | | | VAR
-| | | | | | | | | INDEXLIST
-| | | | | | | | | ID
-| | | | | | VAR
-| | | | | | | INDEXLIST
-| | | | | | | ID
-| | | | | STAT
-| | | | | ASSIGNSTAT
-| | | | | | VAR
-| | | | | | | INDEXLIST
-| | | | | | | ID
-| | | | | | VAR
-| | | | | | | INDEXLIST
-| | | | | | | ID
-| | | | | VARDECL
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | FUNCHEAD
-| | | | | FLOAT
-| | | | | FPARAMLIST
-| | | | | | FPARAM
-| | | | | | | DIMLIST
-| | | | | | | FLOAT
-| | | | | | | ID
-| | | | | ID
-| | ID
-| IMPLDEF
-| | FUNCDEFLIST
-| | | FUNCDEF
-| | | | FUNCBODY
-| | | | | STAT
-| | | | | RETURNSTAT
+| | | | | | LEQ
 | | | | | | INTNUM
-| | | | FUNCHEAD
-| | | | | FLOAT
-| | | | | FPARAMLIST
-| | | | | | FPARAM
-| | | | | | | DIMLIST
-| | | | | | | FLOAT
-| | | | | | | ID
-| | | | | ID
-| | ID
-| STRUCTDECL
-| | MEMBLIST
-| | | FUNCHEAD
-| | | | FLOAT
-| | | | FPARAMLIST
-| | | | | FPARAM
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | ID
-| | | PUBLIC
-| | | FUNCHEAD
-| | | | ID
-| | | | FPARAMLIST
-| | | | | FPARAM
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | | FPARAM
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | | FPARAM
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | ID
-| | | PUBLIC
-| | | VARDECL
-| | | | DIMLIST
-| | | | FLOAT
-| | | | ID
-| | | PRIVATE
-| | | VARDECL
-| | | | DIMLIST
-| | | | FLOAT
-| | | | ID
-| | | PRIVATE
-| | | VARDECL
-| | | | DIMLIST
-| | | | FLOAT
-| | | | ID
-| | | PRIVATE
-| | INHERLIST
-| | | ID
-| | ID
-| STRUCTDECL
-| | MEMBLIST
-| | | FUNCHEAD
-| | | | FLOAT
-| | | | FPARAMLIST
-| | | | | FPARAM
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | ID
-| | | PUBLIC
-| | | FUNCHEAD
-| | | | ID
-| | | | FPARAMLIST
-| | | | | FPARAM
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | | FPARAM
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | ID
-| | | PUBLIC
-| | | VARDECL
-| | | | DIMLIST
-| | | | FLOAT
-| | | | ID
-| | | PRIVATE
-| | | VARDECL
-| | | | DIMLIST
-| | | | FLOAT
-| | | | ID
-| | | PRIVATE
-| | INHERLIST
-| | | ID
-| | ID
-| STRUCTDECL
-| | MEMBLIST
-| | | FUNCHEAD
-| | | | FLOAT
-| | | | FPARAMLIST
-| | | | | FPARAM
-| | | | | | DIMLIST
-| | | | | | FLOAT
-| | | | | | ID
-| | | | ID
-| | | PUBLIC
-| | INHERLIST
-| | ID
+| | | | | STATBLOCK
+| | | | | | STAT
+| | | | | | | WRITESTAT
+| | | | | | | | VAR
+| | | | | | | | | ID
+| | | | | | | | | INDEXLIST
+| | | | | | STAT
+| | | | | | | WRITESTAT
+| | | | | | | | DOT
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | FUNCCALL
+| | | | | | | | | | ID
+| | | | | | | | | | APARAMS
+| | | | | | | | | | | VAR
+| | | | | | | | | | | | ID
+| | | | | | | | | | | | INDEXLIST
+| | | | | | STAT
+| | | | | | | WRITESTAT
+| | | | | | | | DOT
+| | | | | | | | | VAR
+| | | | | | | | | | ID
+| | | | | | | | | | INDEXLIST
+| | | | | | | | | FUNCCALL
+| | | | | | | | | | ID
+| | | | | | | | | | APARAMS
+| | | | | | | | | | | VAR
+| | | | | | | | | | | | ID
+| | | | | | | | | | | | INDEXLIST

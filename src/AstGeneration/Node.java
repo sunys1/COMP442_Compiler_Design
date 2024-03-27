@@ -1,8 +1,12 @@
 package AstGeneration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import LexicalAnalyzer.Token;
+import SymbolTable.SymbolTable;
+import SymbolTable.SymbolTableEntry;
+import Visitor.Visitor;
 
 /**
 *
@@ -12,6 +16,7 @@ import LexicalAnalyzer.Token;
 */
 
 public class Node {
+	// node attributes
 	private String name;
 	private Token token;
 	private int value;
@@ -22,8 +27,9 @@ public class Node {
 	private String kind;
 	private String type;
 
-	// field only used to generate AST dot file
-//	private int index;
+	// symbol table
+	public SymbolTableEntry symbolTableEntry;
+	public SymbolTable symbolTable;
 
 	public Node() {
 		this.name = "";
@@ -121,5 +127,10 @@ public class Node {
 		}
 		
 		return this.leftMostChild;
+	}
+	
+	
+	public void accept(Visitor visitor) throws IOException {
+		visitor.visit(this);
 	}
 }

@@ -46,9 +46,9 @@ factor2 ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar
 
 <funcHead> ::= 'func' 'id' makeNodeId '(' <fParams> ')' 'arrow' <returnType> makeFamilyFuncHead
 
-<idnest> ::= '.' 'id' makeNodeId <idnest2>
-<idnest2> ::= '(' <aParams> ')'
-<idnest2> ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar
+<idnest> ::= '.' makeNodeDotOp 'id' makeNodeId <idnest2>
+<idnest2> ::= '(' <aParams> ')' makeFamilyFuncCall
+<idnest2> ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar makeFamilyDot
 
 <implDef> ::= 'impl' 'id' makeNodeId '{' pushNull <rept-implDef3> makeFamilyFuncDefList makeFamilyImplDef '}' 
 
@@ -132,12 +132,13 @@ factor2 ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar
 <statement> ::= 'while' '(' <relExpr> ')' <statBlock> makeFamilyWhileStat makeFamilyStat ';' 
 <statement> ::= 'read' '(' <variable> makeFamilyReadStat makeFamilyStat ')' ';' 
 <statement> ::= 'write' '(' <expr> makeFamilyWriteStat makeFamilyStat ')' ';' 
-<statement> ::= 'return' '(' <expr> makeFamilyReturnStat makeFamilyStat ')' ';' 
-<statement2> ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar <statement3>
-<statement2> ::= '(' <aParams> ')' makeFamilyFuncCall <statement4> 
-<statement3> ::= '.' 'id' makeNodeId <statement2> makeFamilyDot
-<statement3> ::= <assignOp> <expr> makeFamilyAssignStat makeFamilyStat
-<statement4> ::= '.' 'id' makeNodeId <statement2> makeFamilyDot
+<statement> ::= 'return' '(' <expr> makeFamilyReturnStat makeFamilyStat ')' ';'
+<statement2> ::= '(' <aParams> ')' makeFamilyFuncCall makeFamilyDot <statement3>
+<statement2> ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar makeFamilyDot <statement4>
+<statement3> ::= '.' makeNodeDotOp 'id' makeNodeId <statement2>
+<statement3> ::= EPSILON
+<statement4> ::= <assignOp> <expr> makeFamilyAssignStat makeFamilyStat
+<statement4> ::= '.' makeNodeDotOp 'id' makeNodeId <statement2>
 
 <structDecl> ::= 'struct' 'id' makeNodeId pushNull <opt-structDecl2> makeFamilyInherList '{' pushNull <rept-structDecl4> makeFamilyMembList '}' makeFamilyStructDecl ';' 
 
@@ -151,7 +152,7 @@ factor2 ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar
 <type> ::= 'float' makeNodeFloatNum
 <type> ::= 'id' makeNodeId
 
-<varDecl> ::= 'let' 'id' makeNodeId ':' <type>  <rept-varDecl4> makeFamilyDimList makeFamilyVarDecl ';' 
+<varDecl> ::= 'let' 'id' makeNodeId ':' <type> <rept-varDecl4> makeFamilyDimList makeFamilyVarDecl ';' 
 
 <varDeclOrStat> ::= <varDecl> 
 <varDeclOrStat> ::= <statement>
@@ -162,9 +163,9 @@ factor2 ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar
 <rept-variable> ::= <varidnest> <rept-variable>
 <rept-variable> ::= EPSILON
 
-<varidnest> ::= '.' 'id' makeNodeId <varidnest2> makeFamilyDot
-<varidnest2> ::= '(' <aParams> ')' <varidnest> 
-<varidnest2> ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar
+<varidnest> ::= '.' makeNodeDotOp 'id' makeNodeId <varidnest2> 
+<varidnest2> ::= '(' <aParams> ')' makeFamilyFuncCall makeFamilyDot <varidnest>
+<varidnest2> ::= pushNull <rept-idnest1> makeFamilyIndexList makeFamilyVar makeFamilyDot
 
 <visibility> ::= 'public' makeNodePublic
 <visibility> ::= 'private' makeNodePrivate

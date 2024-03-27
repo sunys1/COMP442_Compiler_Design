@@ -1099,7 +1099,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST</nonterm> &rarr; <term>dot</term> <term>id</term> makeNodeId <nonterm>IDNEST2</nonterm> makeFamilyDot </td>
+<td><nonterm>IDNEST</nonterm> &rarr; <term>dot</term> makeNodeDotOp <term>id</term> makeNodeId <nonterm>IDNEST2</nonterm> makeFamilyDot </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1144,13 +1144,11 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term></td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> makeFamilyFuncCall makeFamilyDot </td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -1163,30 +1161,32 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
 <td>&nbsp;</td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
 <td>&nbsp;</td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>IDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
 </tr>
 <tr><th><nonterm>IMPLDEF</nonterm></th>
 <td>&nbsp;</td>
@@ -2315,8 +2315,8 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>SIGN</nonterm> &rarr; <term>minus</term> madeNodeMinus </td>
-<td><nonterm>SIGN</nonterm> &rarr; <term>plus</term> madeNodePlus </td>
+<td><nonterm>SIGN</nonterm> &rarr; <term>minus</term> makeNodeMinus </td>
+<td><nonterm>SIGN</nonterm> &rarr; <term>plus</term> makeNodePlus </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2441,11 +2441,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> makeFamilyFuncCall <nonterm>STATEMENT4</nonterm></td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> makeFamilyFuncCall makeFamilyDot <nonterm>STATEMENT3</nonterm></td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar <nonterm>STATEMENT3</nonterm></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot <nonterm>STATEMENT4</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2474,31 +2472,26 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar <nonterm>STATEMENT3</nonterm></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot <nonterm>STATEMENT4</nonterm></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar <nonterm>STATEMENT3</nonterm></td>
+<td><nonterm>STATEMENT2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot <nonterm>STATEMENT4</nonterm></td>
 <td>&nbsp;</td>
 </tr>
 <tr><th><nonterm>STATEMENT3</nonterm></th>
+<td><nonterm>STATEMENT3</nonterm> &rarr; &epsilon</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><nonterm>STATEMENT3</nonterm> &rarr; <term>dot</term> <term>id</term> makeNodeId <nonterm>STATEMENT2</nonterm> makeFamilyDot </td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>STATEMENT3</nonterm> &rarr; <term>dot</term> makeNodeDotOp <term>id</term> makeNodeId <nonterm>STATEMENT2</nonterm> </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2529,7 +2522,14 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT3</nonterm> &rarr; <nonterm>ASSIGNOP</nonterm> <nonterm>EXPR</nonterm> makeFamilyAssignStat makeFamilyStat</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
 <tr><th><nonterm>STATEMENT4</nonterm></th>
@@ -2539,7 +2539,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>STATEMENT4</nonterm> &rarr; <term>dot</term> <term>id</term> makeNodeId <nonterm>STATEMENT2</nonterm> makeFamilyDot </td>
+<td><nonterm>STATEMENT4</nonterm> &rarr; <term>dot</term> makeNodeDotOp <term>id</term> makeNodeId <nonterm>STATEMENT2</nonterm> </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -2577,7 +2577,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>STATEMENT4</nonterm> &rarr; <nonterm>ASSIGNOP</nonterm> <nonterm>EXPR</nonterm> makeFamilyAssignStat makeFamilyStat</td>
 <td>&nbsp;</td>
 </tr>
 <tr><th><nonterm>STRUCTDECL</nonterm></th>
@@ -3019,7 +3019,7 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>VARIDNEST</nonterm> &rarr; <term>dot</term> <term>id</term> makeNodeId <nonterm>VARIDNEST2</nonterm> makeFamilyDot </td>
+<td><nonterm>VARIDNEST</nonterm> &rarr; <term>dot</term> makeNodeDotOp <term>id</term> makeNodeId <nonterm>VARIDNEST2</nonterm> </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -3064,12 +3064,10 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td><nonterm>VARIDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> <nonterm>VARIDNEST</nonterm></td>
+<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
+<td><nonterm>VARIDNEST2</nonterm> &rarr; <term>openpar</term> <nonterm>APARAMS</nonterm> <term>closepar</term> makeFamilyFuncCall makeFamilyDot <nonterm>VARIDNEST</nonterm></td>
 <td>&nbsp;</td>
-<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -3098,7 +3096,9 @@ VISIBILITY &rarr;</td><td> private.</td></tr><tr><td></td></tr></table><table cl
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar </td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><nonterm>VARIDNEST2</nonterm> &rarr; pushNull <nonterm>REPTIDNEST1</nonterm> makeFamilyIndexList makeFamilyVar makeFamilyDot </td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
